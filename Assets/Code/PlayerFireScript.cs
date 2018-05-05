@@ -22,6 +22,7 @@ public class PlayerFireScript : MonoBehaviour {
 
     private float m_elapsedSecondsSinceLastBeat;
     private bool m_alreadyFiredForThisBeat;
+    public int Streak { get; private set; }
 
 	// Update is called once per frame
 	void Update ()
@@ -35,6 +36,17 @@ public class PlayerFireScript : MonoBehaviour {
 
         if (!m_alreadyFiredForThisBeat && Input.GetMouseButtonDown(0))
         {
+            if (GetFireRating() == BeatRating.Perfect)
+            {
+                Streak++;
+                EventSystem.Fire(new Events.StreakIncrease(Streak));
+            }
+            else
+            {
+                Streak = 0;
+                EventSystem.Fire(new Events.StreakEnded());
+            }
+
             m_alreadyFiredForThisBeat = true;
             m_trackerUI.OnFire(GetFireRating());
             var bullet = Instantiate(m_bulletPrefab, transform.position + transform.forward * 2f, transform.rotation);
