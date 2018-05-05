@@ -9,6 +9,7 @@ public abstract class Enemy : MonoBehaviour {
     public List<GameObject> BulletPrefabs;
 
     protected virtual List<BulletSpawnInfo> BulletPattern { get; set; }
+    protected bool Alive = true;
 
     /// <summary>
     /// Called on each enemy type when they run out of health and need to explode.
@@ -19,9 +20,13 @@ public abstract class Enemy : MonoBehaviour {
     /// When colliding with something, maybe explode.
     /// </summary>
     /// <param name="collision"></param>
-    public void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collider col)
     {
-        
+        if(col.transform.gameObject.tag == "EnemyBullet" || col.transform.gameObject.tag == "PlayerBullet")
+        {
+            Explode();
+            Destroy(col.gameObject);
+        }
     }
 
     /// <summary>
@@ -32,10 +37,23 @@ public abstract class Enemy : MonoBehaviour {
         // Call the child override function.
         OnExplode();
 
+        // Fire bullets
         FireBulletPattern();
+
+        // Functionally die
+        Die();
 
         // Destroy myself.
         Destroy(gameObject, 3f);
+    }
+
+    /// <summary>
+    /// Act dead, even if the game object needs to still be alive to spawn bullets.
+    /// </summary>
+    private void Die()
+    {
+        GetComponent<Collider>().enabled = false;
+        Alive = false;
     }
 
     /// <summary>

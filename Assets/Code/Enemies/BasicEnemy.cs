@@ -86,6 +86,10 @@ public class BasicEnemy : Enemy
 	
 	// Update is called once per frame
 	void Update () {
+        if(!Alive)
+        {
+            return;
+        }
         Move();
 
         if(Input.GetKeyDown(KeyCode.E))

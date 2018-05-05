@@ -55,6 +55,11 @@ public class FollowerEnemy : Enemy
     /// </summary>
     private void Move()
     {
+        if (!Alive)
+        {
+            return;
+        }
+
         // Get vector to player.
         PlayerScript player = GameObject.FindObjectOfType<PlayerScript>();
         if(player == null) { return; }
