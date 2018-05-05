@@ -73,7 +73,6 @@ GameObject:
   - component: {fileID: 224440184049818070}
   - component: {fileID: 222785685055502022}
   - component: {fileID: 114841296172127140}
-  - component: {fileID: 114020854559489654}
   m_Layer: 5
   m_Name: Multiplier
   m_TagString: Untagged
@@ -134,21 +133,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &114020854559489654
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1516833875736758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68030eb6a226056499f7e55678ae71dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_streakText: {fileID: 0}
-  m_multiplierText: {fileID: 0}
-  m_scoreChangeVelocity: 5
-  m_streakAmountForMultiplierIncrease: 04000000080000001000000020000000400000008000000000010000
 --- !u!114 &114194298261621368
 MonoBehaviour:
   m_ObjectHideFlags: 1
