@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class BasicEnemy : Enemy
 {
-
-    /// <summary>
-    /// The type of bullet that I spawn.
-    /// </summary>
-    public GameObject BulletPrefab;
-
     private const float BulletMoveSpeed = 4f;
 
     private const float ChangeDirectionTimerMax = 5f;
@@ -21,13 +15,69 @@ public class BasicEnemy : Enemy
     /// <summary>
     /// The directions of all of the fired bullets.
     /// </summary>
-    List<Vector3> FireVectors = new List<Vector3>()
-    {
-        new Vector3(0, 0, 1) * BulletMoveSpeed,
-        new Vector3(0, 0, -1) * BulletMoveSpeed,
-        new Vector3(1, 0, 0) * BulletMoveSpeed,
-        new Vector3(-1, 0, 0) * BulletMoveSpeed,
-    };
+    protected override List<BulletSpawnInfo> BulletPattern {
+        get {
+            return new List<BulletSpawnInfo>()
+            {
+                new BulletSpawnInfo()
+                {
+                    Delay = 0,
+                    Direction = new Vector3(0, 0, 1),
+                    Speed = BulletMoveSpeed,
+                    PrefabIndex = 0
+                },
+                new BulletSpawnInfo()
+                {
+                    Delay = 0,
+                    Direction = new Vector3(0, 0, -1),
+                    Speed = BulletMoveSpeed,
+                    PrefabIndex = 0
+                },
+                new BulletSpawnInfo()
+                {
+                    Delay = 0,
+                    Direction = new Vector3(1, 0, 0),
+                    Speed = BulletMoveSpeed,
+                    PrefabIndex = 0
+                },
+                new BulletSpawnInfo()
+                {
+                    Delay = 0,
+                    Direction = new Vector3(-1, 0, 0),
+                    Speed = BulletMoveSpeed,
+                    PrefabIndex = 0
+                },
+                new BulletSpawnInfo()
+                {
+                    Delay = 0.5f,
+                    Direction = new Vector3(0, 0, 1),
+                    Speed = BulletMoveSpeed,
+                    PrefabIndex = 0
+                },
+                new BulletSpawnInfo()
+                {
+                    Delay = 0.5f,
+                    Direction = new Vector3(0, 0, -1),
+                    Speed = BulletMoveSpeed,
+                    PrefabIndex = 0
+                },
+                new BulletSpawnInfo()
+                {
+                    Delay = 0.5f,
+                    Direction = new Vector3(1, 0, 0),
+                    Speed = BulletMoveSpeed,
+                    PrefabIndex = 0
+                },
+                new BulletSpawnInfo()
+                {
+                    Delay = 0.5f,
+                    Direction = new Vector3(-1, 0, 0),
+                    Speed = BulletMoveSpeed,
+                    PrefabIndex = 0
+                }
+            };
+        }
+    }
 
     // Use this for initialization
     void Start () {
@@ -37,6 +87,11 @@ public class BasicEnemy : Enemy
 	// Update is called once per frame
 	void Update () {
         Move();
+
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            FireBulletPattern();
+        }
 	}
 
     /// <summary>
@@ -65,11 +120,6 @@ public class BasicEnemy : Enemy
     /// </summary>
     public override void OnExplode()
     {
-        foreach(var vector in FireVectors)
-        {
-            var bulletObject = GameObject.Instantiate(BulletPrefab) as GameObject;
-            EnemyBullet bullet = bulletObject.GetComponent<EnemyBullet>();
-            bullet.Initialize(vector);
-        }
+        
     }
 }

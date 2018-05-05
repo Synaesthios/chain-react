@@ -2,17 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public struct BulletSpawnInfo
+{
+    public float Delay;
+    public Vector3 Direction;
+    public float Speed;
+    public int PrefabIndex;
+}
+
 public class EnemyBullet : MonoBehaviour
 {
-    private Vector3 m_movementVector;
+    BulletSpawnInfo m_info;
     
     /// <summary>
     /// When the  bullet is created by an enemy
     /// </summary>
     /// <param name="movementVector"></param>
-	public void Initialize(Vector3 movementVector)
+	public void Initialize(BulletSpawnInfo spawnInfo)
     {
-        m_movementVector = movementVector;
+        m_info = spawnInfo;
     }
 
     /// <summary>
@@ -25,6 +33,6 @@ public class EnemyBullet : MonoBehaviour
 
     private void MoveBullet()
     {
-        transform.position += m_movementVector * Time.deltaTime;
+        transform.position += m_info.Direction * m_info.Speed * Time.deltaTime;
     }
 }

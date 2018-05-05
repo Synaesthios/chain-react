@@ -126,6 +126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 0
+  BulletPrefabs:
+  - {fileID: 1247335468256392, guid: 3a20b2685a36a6b46bb2ab792f96f429, type: 2}
 --- !u!135 &135931492117007786
 SphereCollider:
   m_ObjectHideFlags: 1
