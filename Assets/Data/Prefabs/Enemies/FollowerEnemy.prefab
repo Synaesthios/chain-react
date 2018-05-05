@@ -128,6 +128,7 @@ MonoBehaviour:
   Health: 0
   BulletPrefabs:
   - {fileID: 1438547700932232, guid: 4f463f168e1084d41a25af0f28ab7a53, type: 2}
+  renderer: {fileID: 23724685610626704}
 --- !u!135 &135907461414390462
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -18,7 +18,6 @@ public class EnemySpawnPhase {
      */
     public List<Enemy> GetEnemiesToSpawn(float currentTime) {
         List<Enemy> enemiesToSpawn = new List<Enemy>();
-        Debug.Log(timeBetweenEnemySpawns + timeSinceLastRespawn);
         if (currentTime > timeBetweenEnemySpawns + timeSinceLastRespawn) {
             float numberOfEnemies = Random.Range(minEnemiesSpawned, maxEnemiesSpawned);
             for (int i = 0; i < numberOfEnemies; i++) {

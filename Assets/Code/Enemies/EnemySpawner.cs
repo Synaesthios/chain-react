@@ -6,7 +6,6 @@ public class EnemySpawner : MonoBehaviour {
 
 	public Enemy enemy;
 	public Renderer levelBackground;
-	public float timeBetweenRespawnsInSeconds;
 	/**
 	  This dictionary holds a list of enemy spawn phases. The key "float" represents
 	  when an enemySpawnPhase will end.
