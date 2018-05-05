@@ -7,6 +7,7 @@ public struct BulletSpawnInfo
     public float Delay;
     public Vector3 Direction;
     public float Speed;
+    public float Lifetime;
     public int PrefabIndex;
 }
 
@@ -21,6 +22,11 @@ public class EnemyBullet : MonoBehaviour
 	public void Initialize(BulletSpawnInfo spawnInfo)
     {
         m_info = spawnInfo;
+
+        if(m_info.Lifetime > 0)
+        {
+            Destroy(gameObject, m_info.Lifetime);
+        }
     }
 
     /// <summary>
