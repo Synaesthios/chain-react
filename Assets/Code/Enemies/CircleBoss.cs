@@ -21,7 +21,7 @@ public class CircleBoss : Enemy {
         {
             List<BulletSpawnInfo> bullets = new List<BulletSpawnInfo>();
             // Generate bullets in a circle
-            for (int a = 0; a < 360; a += 5)
+            for (int a = 0; a < 360; a += 15)
             {
                 bullets.Add(new BulletSpawnInfo()
                 {
@@ -29,31 +29,6 @@ public class CircleBoss : Enemy {
                     Direction = new Vector3(Mathf.Cos(Mathf.Deg2Rad * a), 0, Mathf.Sin(Mathf.Deg2Rad * a)),
                     Speed = 2f,
                     PrefabIndex = 0,
-                });
-            }
-
-            return bullets;
-        }
-    }
-
-    /// <summary>
-    /// The targetted attacks
-    /// </summary>
-    protected List<BulletSpawnInfo> AttackBulletPattern
-    {
-        get
-        {
-            List<BulletSpawnInfo> bullets = new List<BulletSpawnInfo>();
-            // Generate bullets in a circle
-            for (int a = 0; a < 360; a += 5)
-            {
-                bullets.Add(new BulletSpawnInfo()
-                {
-                    Delay = 0,
-                    Direction = new Vector3(Mathf.Cos(Mathf.Deg2Rad * a), 0, Mathf.Sin(Mathf.Deg2Rad * a)),
-                    Speed = 2f,
-                    PrefabIndex = 0,
-                    StartOffset = transform.forward * 4
                 });
             }
 
