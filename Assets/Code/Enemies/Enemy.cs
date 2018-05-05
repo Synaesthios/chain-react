@@ -10,6 +10,7 @@ public abstract class Enemy : MonoBehaviour {
 
     protected virtual List<BulletSpawnInfo> BulletPattern { get; set; }
     protected bool Alive = true;
+    public Renderer renderer;
 
     /// <summary>
     /// Called on each enemy type when they run out of health and need to explode.
