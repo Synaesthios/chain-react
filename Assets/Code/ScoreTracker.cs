@@ -7,7 +7,10 @@ using UnityEngine.UI;
 public class ScoreTracker : MonoBehaviour
 {
     [SerializeField]
-    Text m_text;
+    Text m_streakText;
+
+    [SerializeField]
+    Text m_multiplierText;
 
     [SerializeField]
     private int m_scoreChangeVelocity = 5;
@@ -21,8 +24,8 @@ public class ScoreTracker : MonoBehaviour
 
 	void Start ()
     {
-        m_text = GetComponent<Text>();
-        m_text.text = "";
+        m_streakText.text = "";
+        m_multiplierText.text = "";
         m_currentMultiplier = 1;
         EventSystem.Subscribe<Events.EnemyDied>(OnEnemyDied);
         EventSystem.Subscribe<Events.StreakIncrease>(OnStreakIncrease);
@@ -38,7 +41,7 @@ public class ScoreTracker : MonoBehaviour
             if (displayedScore > score)
                 displayedScore = score;
 
-            m_text.text = string.Format("Score: {0}\nMultiplier: x{1}", (int)displayedScore, m_currentMultiplier);
+            m_streakText.text = string.Format("Score: {0}", (int)displayedScore);
         }
     }
 
@@ -50,6 +53,7 @@ public class ScoreTracker : MonoBehaviour
     private void OnStreakEnded(Events.StreakEnded evt)
     {
         m_currentMultiplier = 1;
+        m_multiplierText.text = string.Format("Multiplier: x{0}", m_currentMultiplier);
     }
 
     private void OnStreakIncrease(Events.StreakIncrease evt)
@@ -59,5 +63,6 @@ public class ScoreTracker : MonoBehaviour
 
         if (evt.streak >= m_streakAmountForMultiplierIncrease[m_currentMultiplier])
             m_currentMultiplier++;
+        m_multiplierText.text = string.Format("Multiplier: x{0}", m_currentMultiplier);
     }
 }
