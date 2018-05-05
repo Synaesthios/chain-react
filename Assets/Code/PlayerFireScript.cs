@@ -10,13 +10,6 @@ public class PlayerFireScript : MonoBehaviour {
 
     [SerializeField]
     PlayerBullet m_bulletPrefab;
-
-    [SerializeField]
-    Image m_beatRingImage;
-
-
-    [SerializeField]
-    Image m_beatRingInnerImage;
     
     public enum BeatFireRating
     {
@@ -49,7 +42,7 @@ public class PlayerFireScript : MonoBehaviour {
         if (!m_alreadyFiredForThisBeat && Input.GetMouseButtonDown(0))
         {
             m_alreadyFiredForThisBeat = true;
-            var bullet = Instantiate(m_bulletPrefab, transform.position, Quaternion.identity);
+            var bullet = Instantiate(m_bulletPrefab, transform.position + transform.forward * 2f, transform.rotation);
             bullet.Init(GetFireRating());
         }
 
@@ -91,6 +84,7 @@ public class PlayerFireScript : MonoBehaviour {
         }
     }
 
+    /*
     void OnGUI()
     {
         GUI.TextArea(new Rect(0, 0, 400, 200),
@@ -102,6 +96,7 @@ public class PlayerFireScript : MonoBehaviour {
             true
             ));
     }
+    */
 
     private void OnValidate()
     {
