@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerBullet : MonoBehaviour {
 
     [SerializeField]
-    private float m_fireForce = 2f;
+    private float m_fireForce;
 
     private Renderer m_renderer;
     private Rigidbody m_rigidBody;
@@ -15,7 +15,7 @@ public class PlayerBullet : MonoBehaviour {
     {
         m_rigidBody = GetComponent<Rigidbody>();
         m_renderer = GetComponent<Renderer>();
-        m_rigidBody.AddForce(transform.forward, ForceMode.VelocityChange);
+        m_rigidBody.AddForce(transform.forward * m_fireForce, ForceMode.VelocityChange);
 
         switch (rating)
         {
