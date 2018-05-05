@@ -54,6 +54,7 @@ public abstract class Enemy : MonoBehaviour {
     private void Die()
     {
         GetComponent<Collider>().enabled = false;
+        EventSystem.Fire(new Events.EnemyDied(1));
         Alive = false;
     }
 

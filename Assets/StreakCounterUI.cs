@@ -17,6 +17,7 @@ public class StreakCounterUI : MonoBehaviour
     private void Awake()
     {
         m_text = GetComponent<Text>();
+        m_text.text = "";
         EventSystem.Subscribe<Events.StreakIncrease>(OnStreakIncrease);
         EventSystem.Subscribe<Events.StreakEnded>(OnStreakEnded);
     }

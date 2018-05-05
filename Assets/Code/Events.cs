@@ -16,4 +16,13 @@ namespace Events
     struct StreakEnded
     {
     }
+
+    struct EnemyDied
+    {
+        public int scoreValue;
+        public EnemyDied(int scoreValue)
+        {
+            this.scoreValue = scoreValue;
+        }
+    }
 }
