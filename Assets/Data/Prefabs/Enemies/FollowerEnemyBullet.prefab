@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4160015453268896}
   - component: {fileID: 135827584151740534}
   - component: {fileID: 114424856125059056}
+  - component: {fileID: 54710723264944618}
   m_Layer: 12
   m_Name: FollowerEnemyBullet
   m_TagString: EnemyBullet
@@ -114,6 +115,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1725834360863294}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54710723264944618
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1438547700932232}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &114424856125059056
 MonoBehaviour:
   m_ObjectHideFlags: 1

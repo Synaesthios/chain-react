@@ -48,8 +48,6 @@ public class CircleBoss : Enemy {
         Vector3 directionToPlayer = (GameObject.FindObjectOfType<PlayerScript>().transform.position - transform.position).normalized;
         transform.rotation = Quaternion.LookRotation(directionToPlayer, Vector3.up);
 
-        Debug.Log(directionToPlayer);
-
         // Pulse AOE
         if (m_pulseFireTimer < 0)
         {
