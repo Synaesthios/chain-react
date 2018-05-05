@@ -10,14 +10,10 @@ public class PlayerFireScript : MonoBehaviour {
 
     [SerializeField]
     PlayerBullet m_bulletPrefab;
-    
-    public enum BeatFireRating
-    {
-        Normal,
-        Good,
-        Perfect
-    }
 
+    [SerializeField]
+    BeatTrackerUI m_trackerUI;
+    
     [SerializeField]
     float m_goodRatingSecondsBuffer = 0.3f;
 
@@ -37,15 +33,13 @@ public class PlayerFireScript : MonoBehaviour {
             m_elapsedSecondsSinceLastBeat = 0;
         }
 
-        UpdateBeatRing();
-
         if (!m_alreadyFiredForThisBeat && Input.GetMouseButtonDown(0))
         {
             m_alreadyFiredForThisBeat = true;
+            m_trackerUI.OnFire(GetFireRating());
             var bullet = Instantiate(m_bulletPrefab, transform.position + transform.forward * 2f, transform.rotation);
             bullet.Init(GetFireRating());
         }
-
 	}
 
     private float GetSecondsDifferenceFromBeat()
@@ -53,27 +47,17 @@ public class PlayerFireScript : MonoBehaviour {
         return Mathf.Abs((m_secondsBetweenBeats * 0.5f) - m_elapsedSecondsSinceLastBeat);
     }
 
-    private BeatFireRating GetFireRating()
+    private BeatRating GetFireRating()
     {
         // Use half the beat time as beat hit point and calculate difference from
         // that midpoint as rating calculation. 
         var secondsDifferenceFromBeat = GetSecondsDifferenceFromBeat();
         if (secondsDifferenceFromBeat < (m_perfectRatingSecondsBuffer * 0.5f))
-            return BeatFireRating.Perfect;
+            return BeatRating.Perfect;
         else if (secondsDifferenceFromBeat < (m_goodRatingSecondsBuffer * 0.5f))
-            return BeatFireRating.Good;
+            return BeatRating.Good;
         else
-            return BeatFireRating.Normal;
-    }
-
-    private void UpdateBeatRing()
-    {
-
-    }
-
-    private IEnumerator ShowInnerBeatRingFireROutine()
-    {
-        yield return null;
+            return BeatRating.Normal;
     }
 
     public float ToBeatCenterPercentage

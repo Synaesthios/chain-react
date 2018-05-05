@@ -11,7 +11,7 @@ public class PlayerBullet : MonoBehaviour {
     private Renderer m_renderer;
     private Rigidbody m_rigidBody;
 
-	public void Init (PlayerFireScript.BeatFireRating rating)
+	public void Init (BeatRating rating)
     {
         m_rigidBody = GetComponent<Rigidbody>();
         m_renderer = GetComponent<Renderer>();
@@ -19,14 +19,14 @@ public class PlayerBullet : MonoBehaviour {
 
         switch (rating)
         {
-            case PlayerFireScript.BeatFireRating.Normal:
+            case BeatRating.Normal:
                 m_renderer.material.color = Color.white;
                 break;
 
-            case PlayerFireScript.BeatFireRating.Good:
+            case BeatRating.Good:
                 m_renderer.material.color = Color.cyan;
                 break;
-            case PlayerFireScript.BeatFireRating.Perfect:
+            case BeatRating.Perfect:
                 m_renderer.material.color = Color.green;
                 break;
         }

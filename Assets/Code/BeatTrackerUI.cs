@@ -23,9 +23,10 @@ public class BeatTrackerUI : MonoBehaviour
     [SerializeField]
     Color m_startRingColor = Color.clear;
 
+    readonly Color m_endRingColor = BeatRating.Perfect.GetColor();
+
     [SerializeField]
-    Color m_endRingColor = Color.green;
-       
+    float m_showFireEffectSeconds = 0.3f;
 	
 	// Update is called once per frame
 	void Update ()
@@ -35,18 +36,18 @@ public class BeatTrackerUI : MonoBehaviour
         m_ring.color = Color.Lerp(m_startRingColor, m_endRingColor, m_playerFireScript.ToBeatCenterPercentage);
 	}
 
-    public void OnFire()
+    public void OnFire(BeatRating rating)
     {
-        StartCoroutine(OnFireRoutine());
+        StartCoroutine(OnFireRoutine(rating));
     }
 
-    private IEnumerator OnFireRoutine()
+    private IEnumerator OnFireRoutine(BeatRating rating)
     {
-        for (float elapsed = 0; elapsed < 0.3f; elapsed += Time.deltaTime)
+        for (float elapsed = 0; elapsed < m_showFireEffectSeconds; elapsed += Time.deltaTime)
         {
             yield return null;
-            m_inner.color = Color.Lerp(Color.white, Color.green,
-                Mathf.PingPong(elapsed, elapsed * 0.5f));
+            m_inner.color = Color.Lerp(Color.white, rating.GetColor(),
+                Mathf.PingPong(elapsed / m_showFireEffectSeconds * 2f, 1f));
         }
 
         m_inner.color = Color.white;
