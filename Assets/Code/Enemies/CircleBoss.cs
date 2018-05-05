@@ -7,7 +7,7 @@ public class CircleBoss : Enemy {
     private const float PulseFireRate = 2f;
     private float m_pulseFireTimer = 0f;
 
-    private const float StreamFireRate = 0.1f;
+    private const float StreamFireRate = 0.2f;
     private float m_streamFireTimer = 0f;
     private const float SineWaveFreq = 1f;
     private const float SineWaveMag = 0.25f;
@@ -53,6 +53,7 @@ public class CircleBoss : Enemy {
                     Direction = new Vector3(Mathf.Cos(Mathf.Deg2Rad * a), 0, Mathf.Sin(Mathf.Deg2Rad * a)),
                     Speed = 2f,
                     PrefabIndex = 0,
+                    StartOffset = transform.forward * 4
                 });
             }
 
@@ -93,9 +94,9 @@ public class CircleBoss : Enemy {
             {
                 Delay = 0,
                 Direction = transform.forward + (transform.right * (Mathf.Sin(Time.realtimeSinceStartup * SineWaveFreq) * SineWaveMag)),
-                Speed = 1f,
+                Speed = 2f,
                 PrefabIndex = 1,
-                StartOffset = transform.forward * 5
+                StartOffset = transform.forward * 4
             });
         }
         else

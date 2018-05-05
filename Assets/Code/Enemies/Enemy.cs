@@ -25,7 +25,7 @@ public abstract class Enemy : MonoBehaviour {
     {
         if(col.transform.gameObject.tag == "EnemyBullet" || col.transform.gameObject.tag == "PlayerBullet")
         {
-            if(col.gameObject.GetComponent<EnemyBullet>() == null ||
+            if(col.gameObject.GetComponent<EnemyBullet>() != null &&
                 col.gameObject.GetComponent<EnemyBullet>().Owner == gameObject)
             {
                 return;
