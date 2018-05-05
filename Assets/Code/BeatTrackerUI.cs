@@ -31,6 +31,11 @@ public class BeatTrackerUI : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        if(m_playerFireScript == null)
+        {
+            return;
+        }
+
         m_ring.transform.localScale = Vector3.one *
             Mathf.Lerp(m_startRingScale, m_endRingScale, m_playerFireScript.ToBeatCenterPercentage);
         m_ring.color = Color.Lerp(m_startRingColor, m_endRingColor, m_playerFireScript.ToBeatCenterPercentage);

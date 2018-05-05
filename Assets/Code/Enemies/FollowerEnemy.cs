@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class FollowerEnemy : Enemy
 {
-    private const float BulletMoveSpeed = 4f;
-
-    private const float MoveSpeed = 1.5f;
-
     /// <summary>
     /// The directions of all of the fired bullets.
     /// </summary>
@@ -23,9 +19,9 @@ public class FollowerEnemy : Enemy
                 {
                     Delay = 0,
                     Direction = new Vector3(Mathf.Cos(Mathf.Deg2Rad * a), 0, Mathf.Sin(Mathf.Deg2Rad * a)),
-                    Speed = BulletMoveSpeed,
+                    Speed = 12f,
                     PrefabIndex = 0,
-                    Lifetime = 1f
+                    Lifetime = 0.3f
                 });
             }
 
@@ -55,18 +51,7 @@ public class FollowerEnemy : Enemy
     /// </summary>
     private void Move()
     {
-        if (!Alive)
-        {
-            return;
-        }
-
-        // Get vector to player.
-        PlayerScript player = GameObject.FindObjectOfType<PlayerScript>();
-        if(player == null) { return; }
-        Vector3 vectorToPlayer = (player.transform.position - transform.position).normalized;
-
-        // Move along the path to the player.
-        transform.position += vectorToPlayer * MoveSpeed * Time.deltaTime;
+        
     }
 
     /// <summary>

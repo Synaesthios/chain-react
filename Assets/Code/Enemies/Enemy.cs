@@ -9,7 +9,7 @@ public abstract class Enemy : MonoBehaviour {
     public List<GameObject> BulletPrefabs;
 
     protected virtual List<BulletSpawnInfo> BulletPattern { get; set; }
-    protected bool Alive = true;
+    public bool Alive = true;
     public Renderer renderer;
 
     /// <summary>
@@ -25,7 +25,17 @@ public abstract class Enemy : MonoBehaviour {
     {
         if(col.transform.gameObject.tag == "EnemyBullet" || col.transform.gameObject.tag == "PlayerBullet")
         {
-            Explode();
+            if(col.gameObject.GetComponent<EnemyBullet>() == null ||
+                col.gameObject.GetComponent<EnemyBullet>().Owner == gameObject)
+            {
+                return;
+            }
+
+            Health -= 1;
+            if(Health <= 0)
+            {
+                Explode();
+            }
             Destroy(col.gameObject);
         }
     }
@@ -61,13 +71,28 @@ public abstract class Enemy : MonoBehaviour {
     /// <summary>
     /// Fire bullets in a pattern.
     /// </summary>
-    protected void FireBulletPattern()
+    protected void FireBulletPattern(List<BulletSpawnInfo> bulletPattern = null)
     {
-        // Fire all bullets in the pattern
-        foreach (var bulletInfo in BulletPattern)
+        // If nothing is provided, use the member variable.
+        if(bulletPattern == null)
         {
-            StartCoroutine(FireBulletWithDelay(bulletInfo));
+            bulletPattern = BulletPattern;
         }
+
+        // Fire all bullets in the pattern
+        foreach (var bulletInfo in bulletPattern)
+        {
+            FireBullet(bulletInfo);
+        }
+    }
+
+    /// <summary>
+    /// Fire the bullet.
+    /// </summary>
+    /// <param name="bullet"></param>
+    public void FireBullet(BulletSpawnInfo bulletInfo)
+    {
+        StartCoroutine(FireBulletWithDelay(bulletInfo));
     }
 
     /// <summary>
@@ -79,8 +104,8 @@ public abstract class Enemy : MonoBehaviour {
     {
         yield return new WaitForSeconds(info.Delay);
 
-        var bulletObject = GameObject.Instantiate(BulletPrefabs[info.PrefabIndex], transform.position, Quaternion.identity) as GameObject;
+        var bulletObject = GameObject.Instantiate(BulletPrefabs[info.PrefabIndex], transform.position + info.StartOffset, Quaternion.identity) as GameObject;
         EnemyBullet bullet = bulletObject.GetComponent<EnemyBullet>();
-        bullet.Initialize(info);
+        bullet.Initialize(info, gameObject);
     }
 }

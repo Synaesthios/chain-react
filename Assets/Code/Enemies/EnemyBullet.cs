@@ -9,21 +9,24 @@ public struct BulletSpawnInfo
     public float Speed;
     public float Lifetime;
     public int PrefabIndex;
+    public Vector3 StartOffset;
 }
 
 public class EnemyBullet : MonoBehaviour
 {
     BulletSpawnInfo m_info;
-    
+    public GameObject Owner { get; set; }
+
     /// <summary>
     /// When the  bullet is created by an enemy
     /// </summary>
     /// <param name="movementVector"></param>
-	public void Initialize(BulletSpawnInfo spawnInfo)
+	public void Initialize(BulletSpawnInfo spawnInfo, GameObject owner)
     {
         m_info = spawnInfo;
+        Owner = owner;
 
-        if(m_info.Lifetime > 0)
+        if (m_info.Lifetime > 0)
         {
             Destroy(gameObject, m_info.Lifetime);
         }
