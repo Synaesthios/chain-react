@@ -12,7 +12,11 @@ namespace UnityStandardAssets.Utility
 
         private void LateUpdate()
         {
-            transform.position = target.position + offset;
+            transform.position = GetUpdatedPosition();
+        }
+
+        public Vector3 GetUpdatedPosition() {
+            return target.position + offset;
         }
     }
 }

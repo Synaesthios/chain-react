@@ -11,6 +11,8 @@ public abstract class Enemy : MonoBehaviour {
     protected virtual List<BulletSpawnInfo> BulletPattern { get; set; }
     public bool Alive = true;
     public Renderer renderer;
+    [SerializeField]
+    private GameObject explosionParticleSystem;
 
     /// <summary>
     /// Called on each enemy type when they run out of health and need to explode.
@@ -56,6 +58,8 @@ public abstract class Enemy : MonoBehaviour {
     /// </summary>
     private void Explode()
     {
+        Camera.main.GetComponent<CameraShake>().PlayShake();
+        explosionParticleSystem.SetActive(true);
         // Call the child override function.
         OnExplode();
 
