@@ -561,7 +561,7 @@ Prefab:
     - target: {fileID: 65056330886017620, guid: 70dfeb1fad5392e4c8fb4915bee2afe1,
         type: 2}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 65056330886017620, guid: 70dfeb1fad5392e4c8fb4915bee2afe1,
         type: 2}
@@ -653,7 +653,7 @@ Prefab:
     - target: {fileID: 65056330886017620, guid: 70dfeb1fad5392e4c8fb4915bee2afe1,
         type: 2}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 65056330886017620, guid: 70dfeb1fad5392e4c8fb4915bee2afe1,
         type: 2}
@@ -714,7 +714,7 @@ Prefab:
     - target: {fileID: 65056330886017620, guid: 70dfeb1fad5392e4c8fb4915bee2afe1,
         type: 2}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 65056330886017620, guid: 70dfeb1fad5392e4c8fb4915bee2afe1,
         type: 2}
@@ -806,7 +806,7 @@ Prefab:
     - target: {fileID: 65056330886017620, guid: 70dfeb1fad5392e4c8fb4915bee2afe1,
         type: 2}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 65056330886017620, guid: 70dfeb1fad5392e4c8fb4915bee2afe1,
         type: 2}
