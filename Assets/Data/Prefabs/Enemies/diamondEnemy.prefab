@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4694051899568318}
   - component: {fileID: 23724685610626704}
   - component: {fileID: 33699898549675452}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,8 +40,8 @@ GameObject:
   - component: {fileID: 114305623758194352}
   - component: {fileID: 54740119949807846}
   - component: {fileID: 114043169108514116}
-  m_Layer: 0
-  m_Name: StarEnemy
+  m_Layer: 9
+  m_Name: diamondEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,6 +147,7 @@ MonoBehaviour:
   - {fileID: 1438547700932232, guid: 08d59bba592df2b4f9061e260548fde8, type: 2}
   Alive: 1
   renderer: {fileID: 23724685610626704}
+  explosionParticleSystem: {fileID: 0}
 --- !u!114 &114305623758194352
 MonoBehaviour:
   m_ObjectHideFlags: 1
