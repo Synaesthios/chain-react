@@ -16,15 +16,17 @@ public class EnemyBullet : MonoBehaviour
 {
     BulletSpawnInfo m_info;
     public GameObject Owner { get; set; }
+    private System.Action m_onDeath;
 
     /// <summary>
     /// When the  bullet is created by an enemy
     /// </summary>
     /// <param name="movementVector"></param>
-	public void Initialize(BulletSpawnInfo spawnInfo, GameObject owner)
+	public void Initialize(BulletSpawnInfo spawnInfo, GameObject owner, System.Action onDeath)
     {
         m_info = spawnInfo;
         Owner = owner;
+        m_onDeath = onDeath;
 
         if (m_info.Lifetime > 0)
         {
@@ -49,5 +51,10 @@ public class EnemyBullet : MonoBehaviour
     {
         gameObject.tag = "EnemyBullet";
         gameObject.layer = LayerMask.NameToLayer("EnemyBullets");
+    }
+
+    public void Die()
+    {
+        m_onDeath();
     }
 }

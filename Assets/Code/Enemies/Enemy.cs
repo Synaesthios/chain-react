@@ -104,8 +104,12 @@ public abstract class Enemy : MonoBehaviour {
     {
         yield return new WaitForSeconds(info.Delay);
 
-        var bulletObject = GameObject.Instantiate(BulletPrefabs[info.PrefabIndex], transform.position + info.StartOffset, Quaternion.identity) as GameObject;
+        var prefab = BulletPrefabs[info.PrefabIndex];
+        var bulletObject = ObjectPool.Instance.Acquire(prefab);
+        bulletObject.transform.position = transform.position + info.StartOffset;
+        bulletObject.transform.rotation = Quaternion.identity;
+
         EnemyBullet bullet = bulletObject.GetComponent<EnemyBullet>();
-        bullet.Initialize(info, gameObject);
+        bullet.Initialize(info, gameObject, () => { ObjectPool.Instance.Release(prefab, bulletObject); });
     }
 }

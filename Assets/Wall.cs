@@ -5,7 +5,11 @@ using UnityEngine;
 public class Wall : MonoBehaviour {
     public void OnTriggerEnter(Collider col)
     {
-        if(col.transform.gameObject.tag == "EnemyBullet" || col.transform.gameObject.tag == "PlayerBullet")
+        if (col.transform.gameObject.tag == "EnemyBullet")
+        {
+            col.GetComponent<EnemyBullet>().Die();
+        }
+        else if (col.transform.gameObject.tag == "PlayerBullet")
         {
             Destroy(col.gameObject);
         }
