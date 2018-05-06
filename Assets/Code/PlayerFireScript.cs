@@ -15,37 +15,58 @@ public class PlayerFireScript : MonoBehaviour {
     BeatTrackerUI m_trackerUI;
     
     [SerializeField]
-    float m_goodRatingSecondsBuffer = 0.3f;
+    float m_goodRatingSecondsBufferPercent = 0.5f;
 
     [SerializeField]
-    float m_perfectRatingSecondsBuffer = 0.2f;
+    float m_perfectRatingSecondsBufferPercent = 0.5f;
 
     [SerializeField]
     AudioSource m_audioSource;
 
-    [SerializeField]
-    float m_beatMultiplier = 2f;
+    private const float c_delayBeforeMusicStarts = 2f;
 
-    private float m_elapsedSecondsSinceLastBeat;
+    private double m_nextBeatTime;
+    private double m_musicStartTime;
     private bool m_alreadyFiredForThisBeat;
+    private bool m_initialized;
+    private double m_previousBeatTime;
+    private float m_previousHitDifference;
 
     public int Streak { get; private set; }
 
     private void Awake()
     {
-        m_secondsBetweenBeats = UniBpmAnalyzer.AnalyzeBpm(m_audioSource.clip) / (60.0f * m_beatMultiplier);
-        m_goodRatingSecondsBuffer = m_secondsBetweenBeats * 0.3f;
-        m_perfectRatingSecondsBuffer = m_secondsBetweenBeats * 0.2f;
+        m_secondsBetweenBeats = 1 / (UniBpmAnalyzer.AnalyzeBpm(m_audioSource.clip)/ (60.0f));
+        Shader.SetGlobalFloat("_BeatsPerSecond", m_secondsBetweenBeats);
+        m_audioSource.Play();
+        m_musicStartTime = AudioSettings.dspTime + c_delayBeforeMusicStarts;
+        m_previousBeatTime = m_musicStartTime;
+        m_audioSource.SetScheduledStartTime(m_musicStartTime);
+        Shader.SetGlobalFloat("_MusicStartTime", Time.time + c_delayBeforeMusicStarts);
+        m_goodRatingSecondsBufferPercent = m_secondsBetweenBeats * m_goodRatingSecondsBufferPercent;
+        m_perfectRatingSecondsBufferPercent = m_secondsBetweenBeats * m_perfectRatingSecondsBufferPercent;
     }
 
     // Update is called once per frame
     void Update ()
     {
-        m_elapsedSecondsSinceLastBeat += Time.deltaTime;
-        if (m_elapsedSecondsSinceLastBeat > m_secondsBetweenBeats)
+        if (AudioSettings.dspTime < m_musicStartTime)
+        {
+            return;
+        }
+        else if (!m_initialized)
+        {
+            m_initialized = true;
+            m_musicStartTime += m_secondsBetweenBeats * 0.5f;
+            m_previousBeatTime = m_musicStartTime;
+            m_nextBeatTime = m_musicStartTime + m_secondsBetweenBeats;
+        }
+
+        while (AudioSettings.dspTime >= m_nextBeatTime)
         {
             m_alreadyFiredForThisBeat = false;
-            m_elapsedSecondsSinceLastBeat = 0;
+            m_previousBeatTime = m_nextBeatTime;
+            m_nextBeatTime = m_previousBeatTime + m_secondsBetweenBeats;
         }
 
         if (!m_alreadyFiredForThisBeat && Input.GetMouseButtonDown(0))
@@ -60,6 +81,7 @@ public class PlayerFireScript : MonoBehaviour {
             {
                 Streak = 0;
                 EventSystem.Fire(new Events.StreakEnded());
+                m_previousHitDifference = GetSecondsDifferenceFromBeat();
             }
 
             m_alreadyFiredForThisBeat = true;
@@ -71,7 +93,7 @@ public class PlayerFireScript : MonoBehaviour {
 
     private float GetSecondsDifferenceFromBeat()
     {
-        return Mathf.Abs((m_secondsBetweenBeats * 0.5f) - m_elapsedSecondsSinceLastBeat);
+        return Mathf.Abs((m_secondsBetweenBeats * 0.5f) - (float)(AudioSettings.dspTime - m_previousBeatTime));
     }
 
     private BeatRating GetFireRating()
@@ -79,9 +101,9 @@ public class PlayerFireScript : MonoBehaviour {
         // Use half the beat time as beat hit point and calculate difference from
         // that midpoint as rating calculation. 
         var secondsDifferenceFromBeat = GetSecondsDifferenceFromBeat();
-        if (secondsDifferenceFromBeat < (m_perfectRatingSecondsBuffer * 0.5f))
+        if (secondsDifferenceFromBeat < (m_perfectRatingSecondsBufferPercent * 0.5f))
             return BeatRating.Perfect;
-        else if (secondsDifferenceFromBeat < (m_goodRatingSecondsBuffer * 0.5f))
+        else if (secondsDifferenceFromBeat < (m_goodRatingSecondsBufferPercent * 0.5f))
             return BeatRating.Good;
         else
             return BeatRating.Normal;
@@ -94,13 +116,13 @@ public class PlayerFireScript : MonoBehaviour {
             return 1f - (GetSecondsDifferenceFromBeat() / (m_secondsBetweenBeats * 0.5f));
         }
     }
-
+    
     /*
     void OnGUI()
     {
         GUI.TextArea(new Rect(0, 0, 400, 200),
             string.Format("{0}\n{1}\n{2}\n{3}\n{4}",
-            m_elapsedSecondsSinceLastBeat,
+            m_previousHitDifference,
             GetSecondsDifferenceFromBeat(),
             GetFireRating().ToString(),
             m_alreadyFiredForThisBeat,
@@ -111,9 +133,9 @@ public class PlayerFireScript : MonoBehaviour {
 
     private void OnValidate()
     {
-        if (m_secondsBetweenBeats < m_goodRatingSecondsBuffer)
-            m_secondsBetweenBeats = m_goodRatingSecondsBuffer;
-        if (m_perfectRatingSecondsBuffer > m_goodRatingSecondsBuffer)
-            m_perfectRatingSecondsBuffer = m_goodRatingSecondsBuffer;
+        if (m_secondsBetweenBeats < m_goodRatingSecondsBufferPercent)
+            m_secondsBetweenBeats = m_goodRatingSecondsBufferPercent;
+        if (m_perfectRatingSecondsBufferPercent > m_goodRatingSecondsBufferPercent)
+            m_perfectRatingSecondsBufferPercent = m_goodRatingSecondsBufferPercent;
     }
 }
