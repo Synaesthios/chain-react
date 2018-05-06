@@ -197,6 +197,8 @@ MonoBehaviour:
   m_trackerUI: {fileID: 0}
   m_goodRatingSecondsBuffer: 0.3
   m_perfectRatingSecondsBuffer: 0.2
+  m_audioSource: {fileID: 0}
+  m_beatMultiplier: 2
 --- !u!114 &114943191658256266
 MonoBehaviour:
   m_ObjectHideFlags: 1
