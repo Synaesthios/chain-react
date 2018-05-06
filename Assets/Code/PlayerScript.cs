@@ -55,7 +55,7 @@ public class PlayerScript : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider col)
     {
-        if(col.transform.gameObject.tag == "EnemyBullet")
+        if(col.transform.gameObject.tag == "EnemyBullet" || col.transform.gameObject.tag == "BossBullet")
         {
             loseHealth();
             Destroy(col.gameObject);

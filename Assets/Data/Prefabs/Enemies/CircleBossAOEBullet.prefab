@@ -37,11 +37,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4216391246432432}
   - component: {fileID: 135003249987031622}
-  - component: {fileID: 114780677400077134}
   - component: {fileID: 54018048212970914}
+  - component: {fileID: 114714599514573982}
   m_Layer: 12
   m_Name: CircleBossAOEBullet
-  m_TagString: EnemyBullet
+  m_TagString: BossBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,7 +130,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &114780677400077134
+--- !u!114 &114714599514573982
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1859429370541058}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd8def5210405234faed6becefde6d14, type: 3}
+  m_Script: {fileID: 11500000, guid: bf193b04c08ad1f4a902886f02da9218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!135 &135003249987031622
