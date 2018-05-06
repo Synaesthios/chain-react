@@ -6,7 +6,6 @@ public class BasicEnemy : Enemy
 {
     private const float BulletMoveSpeed = 4f;
 
-
     /// <summary>
     /// The directions of all of the fired bullets.
     /// </summary>
@@ -76,6 +75,5 @@ public class BasicEnemy : Enemy
     /// </summary>
     public override void OnExplode()
     {
-        
     }
 }
