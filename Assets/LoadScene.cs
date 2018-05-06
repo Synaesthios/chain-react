@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.Animations;
 public class LoadScene : MonoBehaviour {
 
+	[SerializeField]
+	private Animator animator;
+
 	public void ChangeScene() {
-		SceneManager.LoadScene("Game");
+		animator.SetTrigger("PlayTitle");
+		SceneManager.LoadSceneAsync("Game");
 	}
 }
