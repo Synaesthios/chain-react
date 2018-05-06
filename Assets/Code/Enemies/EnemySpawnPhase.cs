@@ -24,7 +24,7 @@ public class EnemySpawnPhase {
             float numberOfEnemies = Random.Range(minEnemiesSpawned, maxEnemiesSpawned);
             for (int i = 0; i < numberOfEnemies; i++) {
                 enemiesToSpawn.Add(
-                    enemiesThatCanSpawn[Random.Range(0, enemiesThatCanSpawn.Count-1)]);
+                    enemiesThatCanSpawn[Random.Range(0, enemiesThatCanSpawn.Count)]);
             }
             timeSinceLastRespawn = currentTime;
         }

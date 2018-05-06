@@ -49,7 +49,7 @@ public class EnemySpawner : MonoBehaviour {
             Duration = 60,
             minEnemiesSpawned = 3,
             maxEnemiesSpawned = 4,
-            enemiesThatCanSpawn = new List<Enemy>() { basicEnemy, followerEnemy },
+            enemiesThatCanSpawn = new List<Enemy>() { basicEnemy, followerEnemy, followerEnemy },
             timeBetweenEnemySpawns = 5
         });
 
@@ -69,7 +69,7 @@ public class EnemySpawner : MonoBehaviour {
             Duration = 60,
             minEnemiesSpawned = 3,
             maxEnemiesSpawned = 4,
-            enemiesThatCanSpawn = new List<Enemy>() { basicEnemy, followerEnemy },
+            enemiesThatCanSpawn = new List<Enemy>() { basicEnemy, followerEnemy, followerEnemy },
             timeBetweenEnemySpawns = 5
         });
 
