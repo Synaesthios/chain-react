@@ -14,6 +14,8 @@ public class ScoreTracker : MonoBehaviour
 
     [SerializeField]
     private int m_scoreChangeVelocity = 5;
+    private int m_scoreChangeVelocityFast = 20;
+    private const int ScoreChangeVelocityFastCutoff = 10000;
 
     [SerializeField]
     int[] m_streakAmountForMultiplierIncrease = { 4, 8, 12, 16, 24, 32, 40 };
@@ -36,7 +38,13 @@ public class ScoreTracker : MonoBehaviour
     {
         if (displayedScore != score)
         {
-            displayedScore += m_scoreChangeVelocity * Time.deltaTime;
+            float scoreChangeVelocity = m_scoreChangeVelocity;
+            double scoreDifference = score - displayedScore;
+            if(scoreDifference > ScoreChangeVelocityFastCutoff)
+            {
+                scoreChangeVelocity = m_scoreChangeVelocityFast;
+            }
+            displayedScore += scoreChangeVelocity * Time.deltaTime;
 
             if (displayedScore > score)
                 displayedScore = score;
