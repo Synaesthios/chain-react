@@ -53,10 +53,30 @@ public class EnemySpawner : MonoBehaviour {
             timeBetweenEnemySpawns = 5
         });
 
+        // Boss 2
+        SpawnPhases.Add(new EnemySpawnPhase()
+        {
+            Boss = circleBoss,
+            minEnemiesSpawned = 3,
+            maxEnemiesSpawned = 4,
+            enemiesThatCanSpawn = new List<Enemy>() { basicEnemy, followerEnemy },
+            timeBetweenEnemySpawns = 5
+        });
+
         // Enemies 3
         SpawnPhases.Add(new EnemySpawnPhase()
         {
             Duration = 60,
+            minEnemiesSpawned = 3,
+            maxEnemiesSpawned = 4,
+            enemiesThatCanSpawn = new List<Enemy>() { basicEnemy, followerEnemy },
+            timeBetweenEnemySpawns = 5
+        });
+
+        // Boss 3
+        SpawnPhases.Add(new EnemySpawnPhase()
+        {
+            Boss = circleBoss,
             minEnemiesSpawned = 3,
             maxEnemiesSpawned = 4,
             enemiesThatCanSpawn = new List<Enemy>() { basicEnemy, followerEnemy },
