@@ -97,7 +97,11 @@ public abstract class Enemy : MonoBehaviour {
         Destroy(gameObject, 3f);
         var renderer = GetComponentInChildren<Renderer>();
         if (renderer != null)
-            renderer.material.color = new Color(1f, 1f, 1f, .3f) * renderer.material.color;
+        {
+            //renderer.material.color = new Color(1f, 1f, 1f, .3f) * renderer.material.color;
+            renderer.enabled = false;
+        }
+
     }
 
     /// <summary>
