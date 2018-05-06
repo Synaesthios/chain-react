@@ -108,6 +108,12 @@ public class EnemySpawner : MonoBehaviour {
     }
 	
 	void Update () {
+        var player = GameObject.FindObjectOfType<PlayerScript>();
+        if (player == null || player.isDead())
+        {
+            return;
+        }
+
         EnemySpawnPhase currentPhase = GetCurrentEnemySpawnPhase();
 
         List<Enemy> enemiesToSpawn = currentPhase.GetEnemiesToSpawn(m_timeSinceLastPhase);

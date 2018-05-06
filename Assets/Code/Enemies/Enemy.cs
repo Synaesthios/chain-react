@@ -65,8 +65,15 @@ public abstract class Enemy : MonoBehaviour {
         {
             // Functionally die
             Die();
-            m_explodeOnNextBeat = true;
         }
+    }
+
+    /// <summary>
+    /// Enemies die when they hit the player.
+    /// </summary>
+    public void HitPlayer()
+    {
+        Die();
     }
 
     /// <summary>
@@ -109,6 +116,7 @@ public abstract class Enemy : MonoBehaviour {
     /// </summary>
     private void Die()
     {
+        m_explodeOnNextBeat = true;
         GetComponent<Collider>().enabled = false;
         EventSystem.Fire(new Events.EnemyDied(1));
         Alive = false;

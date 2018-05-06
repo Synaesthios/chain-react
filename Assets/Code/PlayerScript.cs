@@ -66,7 +66,9 @@ public class PlayerScript : MonoBehaviour {
 	private void OnCollisionEnter(Collision col) {
 		if (col.collider.GetComponent<Enemy>() != null) {
 			loseHealth();
-		}
+            col.collider.GetComponent<Enemy>().HitPlayer();
+
+        }
 	}
 
 	IEnumerator Invulnerable() {
