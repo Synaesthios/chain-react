@@ -210,6 +210,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   Health: 3
+  playerSprite: {fileID: 212072888919223932}
+  secondsOfInvulnerability: 2
 --- !u!135 &135177538216114898
 SphereCollider:
   m_ObjectHideFlags: 1

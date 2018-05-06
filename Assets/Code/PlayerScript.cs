@@ -9,7 +9,9 @@ public class PlayerScript : MonoBehaviour {
 	private Camera mainCamera;
 	private Rigidbody rigidbody;
 	private Vector3 moveVelocity;
-	
+	public SpriteRenderer playerSprite;
+
+	public float secondsOfInvulnerability;
 	void Start () {
 		mainCamera = FindObjectOfType<Camera>();
 		rigidbody = GetComponent<Rigidbody>();	
@@ -44,6 +46,7 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	private void loseHealth() {
+		StartCoroutine("Invulnerable");
 		Health -= 1;
 		if (isDead()){
 			gameObject.SetActive(false);
@@ -63,5 +66,17 @@ public class PlayerScript : MonoBehaviour {
 		if (col.collider.GetComponent<Enemy>() != null) {
 			loseHealth();
 		}
+	}
+
+	IEnumerator Invulnerable() {
+		GetComponent<Collider>().enabled = false;
+		float flickerRate = 0.1f;
+		float timesToFlicker = secondsOfInvulnerability/flickerRate;
+		for (int i = 0; i < timesToFlicker; i++) {
+			playerSprite.enabled = !playerSprite.enabled;
+			yield return new WaitForSeconds(flickerRate);
+		}
+		playerSprite.enabled = true;
+		GetComponent<Collider>().enabled = true;
 	}
 }
