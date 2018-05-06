@@ -796,6 +796,8 @@ MonoBehaviour:
     type: 2}
   circleBoss: {fileID: 114532188320622012, guid: 1f9226f55e57e364ab94d5b1048a6707,
     type: 2}
+  squareBoss: {fileID: 114198616549191024, guid: 305afdf495902ba41b049233bc6716dc,
+    type: 2}
   levelBackground: {fileID: 1942314744}
 --- !u!23 &1942314744
 MeshRenderer:
@@ -812,7 +814,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 8c19a618a0bd9844583b91dca0875a34, type: 2}
+  - {fileID: 2100000, guid: bf49c31693dcd434295af45b0ba5ca5c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

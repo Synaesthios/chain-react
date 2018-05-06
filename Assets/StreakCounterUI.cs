@@ -33,6 +33,10 @@ public class StreakCounterUI : MonoBehaviour
 
     private void OnStreakEnded(Events.StreakEnded evt)
     {
+        if(m_text == null)
+        {
+            return;
+        }
         m_text.text = "";
     }
 
