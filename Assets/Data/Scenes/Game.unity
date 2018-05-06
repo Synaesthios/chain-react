@@ -224,6 +224,16 @@ Prefab:
       propertyPath: m_playerFireScript
       value: 
       objectReference: {fileID: 609820825}
+    - target: {fileID: 114473660265190132, guid: e0ce2f5bc33aa6e43b5aecb86c639f9c,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 609820823}
+    - target: {fileID: 114558937412234422, guid: e0ce2f5bc33aa6e43b5aecb86c639f9c,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 609820823}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0ce2f5bc33aa6e43b5aecb86c639f9c, type: 2}
   m_IsPrefabParent: 0
@@ -434,9 +444,20 @@ Prefab:
       propertyPath: m_trackerUI
       value: 
       objectReference: {fileID: 332393118}
+    - target: {fileID: 114943191658256266, guid: 407d0e97576ea184da367657385835dc,
+        type: 2}
+      propertyPath: Health
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 407d0e97576ea184da367657385835dc, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &609820823 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114943191658256266, guid: 407d0e97576ea184da367657385835dc,
+    type: 2}
+  m_PrefabInternal: {fileID: 609820822}
+  m_Script: {fileID: 11500000, guid: d00b4edeceb8af249934e3886445e790, type: 3}
 --- !u!4 &609820824 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4374677376365134, guid: 407d0e97576ea184da367657385835dc,
