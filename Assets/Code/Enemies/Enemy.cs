@@ -14,10 +14,18 @@ public abstract class Enemy : MonoBehaviour {
     [SerializeField]
     private GameObject explosionParticleSystem;
 
+    private bool m_explodeOnNextBeat = false;
+
+
     /// <summary>
     /// Called on each enemy type when they run out of health and need to explode.
     /// </summary>
     public abstract void OnExplode();
+
+    private void Start()
+    {
+        GameObject.FindObjectOfType<AudioProcessor>().onBeat.AddListener(OnBeat);
+    }
 
     /// <summary>
     /// When colliding with something, maybe explode.
@@ -55,6 +63,20 @@ public abstract class Enemy : MonoBehaviour {
         Health -= 1;
         if(Health <= 0)
         {
+            // Functionally die
+            Die();
+            m_explodeOnNextBeat = true;
+        }
+    }
+
+    /// <summary>
+    /// Called when a beat happens. Enemies only explode on the next beat after they die.
+    /// </summary>
+    public void OnBeat()
+    {
+        if (m_explodeOnNextBeat)
+        {
+            GameObject.FindObjectOfType<AudioProcessor>().onBeat.RemoveListener(OnBeat);
             Explode();
         }
     }
@@ -71,9 +93,6 @@ public abstract class Enemy : MonoBehaviour {
 
         // Fire bullets
         FireBulletPattern();
-
-        // Functionally die
-        Die();
 
         Destroy(gameObject, 3f);
         var renderer = GetComponentInChildren<Renderer>();

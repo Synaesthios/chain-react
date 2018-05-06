@@ -48,21 +48,6 @@ public class DiamondEnemy : Enemy
         }
     }
 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            FireBulletPattern();
-        }
-    }
-
     /// <summary>
     /// Create bullets in all inter-cardinal directions (st andrews cross)
     /// </summary>

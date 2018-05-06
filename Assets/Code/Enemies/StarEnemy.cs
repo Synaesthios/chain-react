@@ -76,21 +76,6 @@ public class StarEnemy : Enemy
         }
     }
 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            FireBulletPattern();
-        }
-    }
-
     /// <summary>
     /// Create bullets in all compass directions (8 pointed starburst)
     /// </summary>

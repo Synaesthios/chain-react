@@ -29,31 +29,6 @@ public class FollowerEnemy : Enemy
         }
     }
 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        Move();
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            FireBulletPattern();
-        }
-    }
-
-    /// <summary>
-    /// Move around
-    /// </summary>
-    private void Move()
-    {
-        
-    }
-
     /// <summary>
     /// Create bullets Horizontally and Vertically.
     /// </summary>
