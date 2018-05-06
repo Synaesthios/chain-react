@@ -53,7 +53,10 @@ public class ScoreTracker : MonoBehaviour
     private void OnStreakEnded(Events.StreakEnded evt)
     {
         m_currentMultiplier = 1;
-        m_multiplierText.text = string.Format("Multiplier: x{0}", m_currentMultiplier);
+        if(m_multiplierText != null)
+        {
+            m_multiplierText.text = string.Format("Multiplier: x{0}", m_currentMultiplier);
+        }
         GameObject.FindObjectOfType<LowPassFilterManager>().SetFromCombo(0);
     }
 
@@ -64,7 +67,9 @@ public class ScoreTracker : MonoBehaviour
 
         if (evt.streak >= m_streakAmountForMultiplierIncrease[m_currentMultiplier])
             m_currentMultiplier++;
-        m_multiplierText.text = string.Format("Multiplier: x{0}", m_currentMultiplier);
+
+        if(m_multiplierText != null)
+            m_multiplierText.text = string.Format("Multiplier: x{0}", m_currentMultiplier);
 
         GameObject.FindObjectOfType<LowPassFilterManager>().SetFromCombo(m_currentMultiplier - 1);
     }
