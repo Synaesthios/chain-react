@@ -9,7 +9,7 @@ public class PlayerScript : MonoBehaviour {
 	private Camera mainCamera;
 	private Rigidbody rigidbody;
 	private Vector3 moveVelocity;
-	public SpriteRenderer playerSprite;
+	//public SpriteRenderer playerSprite;
 
 	public float secondsOfInvulnerability;
 	void Start () {
@@ -73,10 +73,10 @@ public class PlayerScript : MonoBehaviour {
 		float flickerRate = 0.1f;
 		float timesToFlicker = secondsOfInvulnerability/flickerRate;
 		for (int i = 0; i < timesToFlicker; i++) {
-			playerSprite.enabled = !playerSprite.enabled;
+			//playerSprite.enabled = !playerSprite.enabled;
 			yield return new WaitForSeconds(flickerRate);
 		}
-		playerSprite.enabled = true;
+		//playerSprite.enabled = true;
 		GetComponent<Collider>().enabled = true;
 	}
 }
