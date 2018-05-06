@@ -23,12 +23,24 @@ public abstract class Enemy : MonoBehaviour {
     /// <param name="collision"></param>
     public void OnTriggerEnter(Collider col)
     {
+        if (!Alive)
+            return;
+
         if(col.transform.gameObject.tag == "EnemyBullet" || col.transform.gameObject.tag == "PlayerBullet")
         {
-            if(col.gameObject.GetComponent<EnemyBullet>() != null &&
-                col.gameObject.GetComponent<EnemyBullet>().Owner == gameObject)
+            var enemyBullet = col.gameObject.GetComponent<EnemyBullet>();
+            if (enemyBullet != null)
             {
-                return;
+                if (enemyBullet.Owner == gameObject)
+                {
+                    return;
+                }
+
+                enemyBullet.Die();
+            }
+            else
+            {
+                Destroy(col.gameObject);
             }
 
             Health -= 1;
@@ -36,7 +48,6 @@ public abstract class Enemy : MonoBehaviour {
             {
                 Explode();
             }
-            Destroy(col.gameObject);
         }
     }
 
@@ -54,8 +65,10 @@ public abstract class Enemy : MonoBehaviour {
         // Functionally die
         Die();
 
-        // Destroy myself.
         Destroy(gameObject, 3f);
+        var renderer = GetComponentInChildren<Renderer>();
+        if (renderer != null)
+            renderer.material.color = new Color(1f, 1f, 1f, .3f) * renderer.material.color;
     }
 
     /// <summary>
@@ -105,9 +118,7 @@ public abstract class Enemy : MonoBehaviour {
         yield return new WaitForSeconds(info.Delay);
 
         var prefab = BulletPrefabs[info.PrefabIndex];
-        var bulletObject = ObjectPool.Instance.Acquire(prefab);
-        bulletObject.transform.position = transform.position + info.StartOffset;
-        bulletObject.transform.rotation = Quaternion.identity;
+        var bulletObject = ObjectPool.Instance.Acquire(prefab, transform.position + info.StartOffset, Quaternion.identity);
 
         EnemyBullet bullet = bulletObject.GetComponent<EnemyBullet>();
         bullet.Initialize(info, gameObject, () => { ObjectPool.Instance.Release(prefab, bulletObject); });

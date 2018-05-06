@@ -14,6 +14,7 @@ public class ObjectPool : MonoBehaviour
             if (s_instance == null)
             {
                 s_instance = new GameObject("ObjectPool").AddComponent<ObjectPool>();
+                s_instance.transform.position = new Vector3(0, -1000, 0);
             }
 
             return s_instance;
@@ -23,7 +24,7 @@ public class ObjectPool : MonoBehaviour
 
     Dictionary<GameObject, Queue<GameObject>> m_objectPool = new Dictionary<GameObject, Queue<GameObject>>();
 
-    public GameObject Acquire(GameObject prefab)
+    public GameObject Acquire(GameObject prefab, Vector3 position, Quaternion rotation)
     {
         if (!m_objectPool.ContainsKey(prefab))
         {
@@ -31,18 +32,19 @@ public class ObjectPool : MonoBehaviour
         }
 
         if (m_objectPool[prefab].Count == 0)
-            return Instantiate(prefab);
+            return Instantiate(prefab, position, rotation);
 
         var obj = m_objectPool[prefab].Dequeue();
-        obj.SetActive(true);
         obj.transform.SetParent(null);
+        obj.transform.position = position;
+        obj.transform.rotation = rotation;
         return obj;
     }
 
     public void Release(GameObject prefab, GameObject obj)
     {
-        obj.SetActive(false);
-        obj.transform.SetParent(transform);
-        m_objectPool[prefab].Enqueue(obj);
+        obj.transform.SetParent(transform, false);
+        obj.transform.localPosition = Vector3.zero;
+        //m_objectPool[prefab].Enqueue(obj);
     }
 }

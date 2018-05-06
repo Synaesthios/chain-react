@@ -18,9 +18,6 @@ public class PlayerScript : MonoBehaviour {
 	void Update () {
 		UpdateVelocity();
 		UpdateDirection();
-	}
-
-	void FixedUpdate() {
 		rigidbody.velocity = moveVelocity;
 	}
 

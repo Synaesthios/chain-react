@@ -27,10 +27,11 @@ public class EnemyBullet : MonoBehaviour
         m_info = spawnInfo;
         Owner = owner;
         m_onDeath = onDeath;
+        gameObject.SetActive(true);
 
         if (m_info.Lifetime > 0)
         {
-            Destroy(gameObject, m_info.Lifetime);
+            Invoke("Die", m_info.Lifetime);
         }
     }
 
@@ -55,6 +56,8 @@ public class EnemyBullet : MonoBehaviour
 
     public void Die()
     {
+        gameObject.SetActive(false);
+        CancelInvoke();
         m_onDeath();
     }
 }
