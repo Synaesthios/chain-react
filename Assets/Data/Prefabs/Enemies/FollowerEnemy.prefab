@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 135907461414390462}
   - component: {fileID: 114610054675416008}
   - component: {fileID: 114305623758194352}
+  - component: {fileID: 54740119949807846}
   m_Layer: 0
   m_Name: FollowerEnemy
   m_TagString: Untagged
@@ -115,6 +116,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1325459536136234}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54740119949807846
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1573753355345202}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 116
+  m_CollisionDetection: 0
 --- !u!114 &114305623758194352
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -126,6 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b378af8ef01c254b9d9ec819873e1e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MoveSpeed: 1.5
 --- !u!114 &114610054675416008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -140,8 +157,8 @@ MonoBehaviour:
   Health: 0
   BulletPrefabs:
   - {fileID: 1438547700932232, guid: 4f463f168e1084d41a25af0f28ab7a53, type: 2}
-  renderer: {fileID: 23724685610626704}
   Alive: 1
+  renderer: {fileID: 23724685610626704}
 --- !u!135 &135907461414390462
 SphereCollider:
   m_ObjectHideFlags: 1

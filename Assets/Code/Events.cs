@@ -25,4 +25,8 @@ namespace Events
             this.scoreValue = scoreValue;
         }
     }
+
+    struct BossDied
+    {
+    }
 }

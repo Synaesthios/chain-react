@@ -37,7 +37,6 @@ public class EnemySpawner : MonoBehaviour {
         SpawnPhases.Add(new EnemySpawnPhase()
         {
             Boss = circleBoss,
-            Duration = 10,
             minEnemiesSpawned = 3,
             maxEnemiesSpawned = 4,
             enemiesThatCanSpawn = new List<Enemy>() { basicEnemy, followerEnemy },
@@ -63,6 +62,8 @@ public class EnemySpawner : MonoBehaviour {
             enemiesThatCanSpawn = new List<Enemy>() { basicEnemy, followerEnemy },
             timeBetweenEnemySpawns = 5
         });
+
+        EventSystem.Subscribe<Events.BossDied>(OnBossDied);
     }
 	
 	void Update () {
@@ -73,11 +74,16 @@ public class EnemySpawner : MonoBehaviour {
 
         m_timeSinceLastPhase += Time.deltaTime;
 
-        if(m_timeSinceLastPhase > currentPhase.Duration)
+        if(m_timeSinceLastPhase > currentPhase.Duration && currentPhase.Duration > 0)
         {
             StartNextPhase();
         }
 
+    }
+
+    private void OnBossDied(Events.BossDied evt)
+    {
+        StartNextPhase();
     }
 
     private void StartNextPhase()
