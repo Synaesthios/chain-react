@@ -56,7 +56,7 @@
 			o.Metallic = _Metallic;
 			o.Smoothness = _Glossiness;
 			o.Alpha = c.a;
-			o.Emission = (_Emmisive * 0.5) + (_Emmisive * 0.5f * _BeatPercentage);
+			o.Emission = (_Emmisive * 0.2) + (_Emmisive * 0.7f * _BeatPercentage);
 		}
 		ENDCG
 	}

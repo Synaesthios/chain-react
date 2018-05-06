@@ -16,6 +16,7 @@ public abstract class Enemy : MonoBehaviour {
 
     private bool m_explodeOnNextBeat = false;
 
+    private static readonly int c_explodeId = Shader.PropertyToID("_Explode");
 
     /// <summary>
     /// Called on each enemy type when they run out of health and need to explode.
@@ -100,15 +101,18 @@ public abstract class Enemy : MonoBehaviour {
 
         // Fire bullets
         FireBulletPattern();
+        StartCoroutine(ExplodeRoutine());
+    }
 
-        Destroy(gameObject, 3f);
-        var renderer = GetComponentInChildren<Renderer>();
-        if (renderer != null)
+    private IEnumerator ExplodeRoutine()
+    {
+        var material = GetComponentInChildren<Renderer>().material;
+        for (float elapsed = 0f; elapsed < 1f; elapsed += Time.deltaTime)
         {
-            //renderer.material.color = new Color(1f, 1f, 1f, .3f) * renderer.material.color;
-            renderer.enabled = false;
+            yield return null;
+            material.SetFloat(c_explodeId, (elapsed / 2f) + 0.5f);
         }
-
+        Destroy(gameObject);
     }
 
     /// <summary>
@@ -118,7 +122,8 @@ public abstract class Enemy : MonoBehaviour {
     {
         m_explodeOnNextBeat = true;
         GetComponent<Collider>().enabled = false;
-        EventSystem.Fire(new Events.EnemyDied(1));
+        EventSystem.Fire(new Events.EnemyDied(100));
+        GetComponentInChildren<Renderer>().material.SetFloat(c_explodeId, 0.5f);
         Alive = false;
     }
 

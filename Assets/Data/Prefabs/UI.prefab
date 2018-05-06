@@ -399,7 +399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_streakText: {fileID: 114116486307933126}
   m_multiplierText: {fileID: 114841296172127140}
-  m_scoreChangeVelocity: 5
+  m_scoreChangeVelocity: 500
   m_streakAmountForMultiplierIncrease: 04000000080000001000000020000000400000008000000000010000
 --- !u!114 &114663663625215366
 MonoBehaviour:
