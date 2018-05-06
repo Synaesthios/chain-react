@@ -63,7 +63,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1787416461384132
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,14 +283,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b623e3957664587468c70011c480493d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_secondsBetweenBeats: 1.01
   m_bulletPrefab: {fileID: 114609384544243530, guid: 91cc0c2fc4c895a4390790ac8ed836f3,
     type: 2}
   m_trackerUI: {fileID: 0}
   m_goodRatingSecondsBufferPercent: 0.5
   m_perfectRatingSecondsBufferPercent: 0.5
-  m_audioSource: {fileID: 0}
-  m_beatAudioSource: {fileID: 0}
 --- !u!114 &114943191658256266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -304,6 +301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   Health: 3
+  shipRenderer: {fileID: 23306380861979700}
   secondsOfInvulnerability: 2
 --- !u!135 &135177538216114898
 SphereCollider:
