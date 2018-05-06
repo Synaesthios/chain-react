@@ -14,6 +14,6 @@ public class LivesTracker : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		livesText.text = string.Format("Lives: {0}", player.Health);
+		livesText.text = player.Health.ToString();
 	}
 }

@@ -210,21 +210,21 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114558937412234422, guid: e0ce2f5bc33aa6e43b5aecb86c639f9c,
-        type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 609820823}
-    - target: {fileID: 114473660265190132, guid: e0ce2f5bc33aa6e43b5aecb86c639f9c,
-        type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 609820823}
     - target: {fileID: 114908021260086330, guid: e0ce2f5bc33aa6e43b5aecb86c639f9c,
         type: 2}
       propertyPath: m_playerFireScript
       value: 
       objectReference: {fileID: 609820825}
+    - target: {fileID: 114473660265190132, guid: e0ce2f5bc33aa6e43b5aecb86c639f9c,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 609820823}
+    - target: {fileID: 114558937412234422, guid: e0ce2f5bc33aa6e43b5aecb86c639f9c,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 609820823}
     - target: {fileID: 114685083048531064, guid: e0ce2f5bc33aa6e43b5aecb86c639f9c,
         type: 2}
       propertyPath: m_playerFireScript
