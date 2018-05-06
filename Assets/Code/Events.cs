@@ -29,4 +29,15 @@ namespace Events
     struct BossDied
     {
     }
+
+    struct MusicChanged
+    {
+        public double m_dspStartTime;
+        public float m_startTime;
+        public float m_secondsBetweenBeats;
+    }
+
+    struct OnBeat
+    {
+    }
 }

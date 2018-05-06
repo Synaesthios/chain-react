@@ -310,6 +310,7 @@ GameObject:
   m_Component:
   - component: {fileID: 366858793}
   - component: {fileID: 366858792}
+  - component: {fileID: 366858796}
   - component: {fileID: 366858791}
   - component: {fileID: 366858794}
   - component: {fileID: 366858795}
@@ -488,6 +489,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LowPassFilter: {fileID: 366858794}
+--- !u!114 &366858796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 366858790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8ad14ba741a394b90d392009fd7eab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_music:
+  - {fileID: 8300000, guid: 6c486a25ed5cb794ca2c1259807d00ff, type: 3}
+  - {fileID: 8300000, guid: 3ede94b8fbfbe5545882d91c25a388cc, type: 3}
+  - {fileID: 8300000, guid: 70389733dfa12514ba72d9398fd3e242, type: 3}
+  - {fileID: 8300000, guid: 359e96bb92fa5ec4a8bf6b8827b0b2c5, type: 3}
+  - {fileID: 8300000, guid: 98d54945ddc8e744194d05b39fed4c8d, type: 3}
+  - {fileID: 8300000, guid: adfff24a319b41447970a9d6072b7b6e, type: 3}
+  m_beatAudioSource: {fileID: 466148091}
 --- !u!1 &466148087
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,9 +6,6 @@ using UnityEngine.UI;
 public class PlayerFireScript : MonoBehaviour {
 
     [SerializeField]
-    float m_secondsBetweenBeats = 1f;
-
-    [SerializeField]
     PlayerBullet m_bulletPrefab;
 
     [SerializeField]
@@ -20,49 +17,38 @@ public class PlayerFireScript : MonoBehaviour {
     [SerializeField]
     float m_perfectRatingSecondsBufferPercent = 0.5f;
 
-    [SerializeField]
-    AudioSource m_audioSource;
-    [SerializeField]
-    AudioSource m_beatAudioSource;
-
-    private const float c_delayBeforeMusicStarts = 2f;
-
+    private float m_secondsBetweenBeats;
     private double m_nextBeatTime;
     private double m_musicStartTime;
     private bool m_alreadyFiredForThisBeat;
     private bool m_initialized;
     private double m_previousBeatTime;
-    private float m_previousHitDifference;
 
     public int Streak { get; private set; }
 
-    private void Awake()
+    private void Start()
     {
-        m_secondsBetweenBeats = 1 / (UniBpmAnalyzer.AnalyzeBpm(m_audioSource.clip)/ (60.0f));
-        m_audioSource.Play();
-        m_beatAudioSource.Play();
-        m_musicStartTime = AudioSettings.dspTime + c_delayBeforeMusicStarts;
+        EventSystem.Subscribe<Events.MusicChanged>(OnMusicChanged);
+    }
+
+    private void OnMusicChanged(Events.MusicChanged evt)
+    {
+        m_secondsBetweenBeats = evt.m_secondsBetweenBeats;
+        m_musicStartTime = evt.m_dspStartTime;
+        m_musicStartTime += m_secondsBetweenBeats * 0.5f; // Apply offset
         m_previousBeatTime = m_musicStartTime;
-        m_audioSource.SetScheduledStartTime(m_musicStartTime);
-        m_beatAudioSource.SetScheduledStartTime(m_musicStartTime);
-        Shader.SetGlobalFloat("_MusicStartTime", Time.time + c_delayBeforeMusicStarts);
+        m_nextBeatTime = m_musicStartTime + m_secondsBetweenBeats;
         m_goodRatingSecondsBufferPercent = m_secondsBetweenBeats * m_goodRatingSecondsBufferPercent;
         m_perfectRatingSecondsBufferPercent = m_secondsBetweenBeats * m_perfectRatingSecondsBufferPercent;
+        m_initialized = true;
     }
 
     // Update is called once per frame
     void Update ()
     {
-        if (AudioSettings.dspTime < m_musicStartTime)
+        if (AudioSettings.dspTime < m_musicStartTime || !m_initialized)
         {
             return;
-        }
-        else if (!m_initialized)
-        {
-            m_initialized = true;
-            m_musicStartTime += m_secondsBetweenBeats * 0.5f;
-            m_previousBeatTime = m_musicStartTime;
-            m_nextBeatTime = m_musicStartTime + m_secondsBetweenBeats;
         }
 
         while (AudioSettings.dspTime >= m_nextBeatTime)
@@ -83,7 +69,6 @@ public class PlayerFireScript : MonoBehaviour {
             {
                 Streak = 0;
                 EventSystem.Fire(new Events.StreakEnded());
-                m_previousHitDifference = GetSecondsDifferenceFromBeat();
             }
 
             m_alreadyFiredForThisBeat = true;

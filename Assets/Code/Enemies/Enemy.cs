@@ -24,7 +24,7 @@ public abstract class Enemy : MonoBehaviour {
 
     private void Start()
     {
-        GameObject.FindObjectOfType<AudioProcessor>().onBeat.AddListener(OnBeat);
+        EventSystem.Subscribe<Events.OnBeat>(OnBeat);
     }
 
     /// <summary>
@@ -72,11 +72,11 @@ public abstract class Enemy : MonoBehaviour {
     /// <summary>
     /// Called when a beat happens. Enemies only explode on the next beat after they die.
     /// </summary>
-    public void OnBeat()
+    private void OnBeat(Events.OnBeat evt)
     {
         if (m_explodeOnNextBeat)
         {
-            GameObject.FindObjectOfType<AudioProcessor>().onBeat.RemoveListener(OnBeat);
+            EventSystem.Unsubscribe<Events.OnBeat>(OnBeat);
             Explode();
         }
     }
