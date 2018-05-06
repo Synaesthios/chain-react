@@ -67,7 +67,7 @@ public class CircleBoss : Enemy {
             {
                 Delay = 0,
                 Direction = transform.forward + (transform.right * (Mathf.Sin(Time.realtimeSinceStartup * SineWaveFreq) * SineWaveMag)),
-                Speed = 2f,
+                Speed = 3f,
                 PrefabIndex = 1,
                 StartOffset = transform.forward * 4
             });
