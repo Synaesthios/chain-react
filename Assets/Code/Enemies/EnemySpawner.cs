@@ -27,7 +27,7 @@ public class EnemySpawner : MonoBehaviour {
         // Enemies 1
         SpawnPhases.Add(new EnemySpawnPhase()
         {
-            Duration = 10,
+            Duration = 30,
             minEnemiesSpawned = 3,
             maxEnemiesSpawned = 4,
             enemiesThatCanSpawn = new List<Enemy>() { basicEnemy, followerEnemy },
@@ -47,7 +47,7 @@ public class EnemySpawner : MonoBehaviour {
         // Enemies 2
         SpawnPhases.Add(new EnemySpawnPhase()
         {
-            Duration = 10,
+            Duration = 30,
             minEnemiesSpawned = 4,
             maxEnemiesSpawned = 5,
             enemiesThatCanSpawn = new List<Enemy>() { basicEnemy, followerEnemy, followerEnemy },
@@ -78,9 +78,29 @@ public class EnemySpawner : MonoBehaviour {
         SpawnPhases.Add(new EnemySpawnPhase()
         {
             Boss = circleBoss,
-            minEnemiesSpawned = 3,
-            maxEnemiesSpawned = 4,
-            enemiesThatCanSpawn = new List<Enemy>() { basicEnemy, followerEnemy },
+            minEnemiesSpawned = 4,
+            maxEnemiesSpawned = 5,
+            enemiesThatCanSpawn = new List<Enemy>() { followerEnemy, followerEnemy },
+            timeBetweenEnemySpawns = 5
+        });
+
+        // Enemies 4
+        SpawnPhases.Add(new EnemySpawnPhase()
+        {
+            Duration = 60,
+            minEnemiesSpawned = 5,
+            maxEnemiesSpawned = 6,
+            enemiesThatCanSpawn = new List<Enemy>() { basicEnemy, followerEnemy, followerEnemy },
+            timeBetweenEnemySpawns = 5
+        });
+
+        // Boss 4
+        SpawnPhases.Add(new EnemySpawnPhase()
+        {
+            Boss = squareBoss,
+            minEnemiesSpawned = 5,
+            maxEnemiesSpawned = 6,
+            enemiesThatCanSpawn = new List<Enemy>() { followerEnemy, followerEnemy },
             timeBetweenEnemySpawns = 5
         });
 
@@ -114,7 +134,8 @@ public class EnemySpawner : MonoBehaviour {
         m_currentPhase++;
         if (m_currentPhase >= SpawnPhases.Count)
         {
-            m_currentPhase = 0;
+            // Don't loop back to easy mode, loop through the harder modes.
+            m_currentPhase = 4;
         }
 
         // Spawn a boss if one is needed
