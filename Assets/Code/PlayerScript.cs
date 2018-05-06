@@ -51,6 +51,7 @@ public class PlayerScript : MonoBehaviour {
 		if (isDead()){
 			gameObject.SetActive(false);
 		}
+        GameObject.FindObjectOfType<LowPassFilterManager>().SetFilterAmountImmediate(0);
 	}
 
 	private void OnTriggerEnter(Collider col)

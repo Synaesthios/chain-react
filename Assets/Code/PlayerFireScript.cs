@@ -22,6 +22,8 @@ public class PlayerFireScript : MonoBehaviour {
 
     [SerializeField]
     AudioSource m_audioSource;
+    [SerializeField]
+    AudioSource m_beatAudioSource;
 
     private const float c_delayBeforeMusicStarts = 2f;
 
@@ -38,9 +40,11 @@ public class PlayerFireScript : MonoBehaviour {
     {
         m_secondsBetweenBeats = 1 / (UniBpmAnalyzer.AnalyzeBpm(m_audioSource.clip)/ (60.0f));
         m_audioSource.Play();
+        m_beatAudioSource.Play();
         m_musicStartTime = AudioSettings.dspTime + c_delayBeforeMusicStarts;
         m_previousBeatTime = m_musicStartTime;
         m_audioSource.SetScheduledStartTime(m_musicStartTime);
+        m_beatAudioSource.SetScheduledStartTime(m_musicStartTime);
         Shader.SetGlobalFloat("_MusicStartTime", Time.time + c_delayBeforeMusicStarts);
         m_goodRatingSecondsBufferPercent = m_secondsBetweenBeats * m_goodRatingSecondsBufferPercent;
         m_perfectRatingSecondsBufferPercent = m_secondsBetweenBeats * m_perfectRatingSecondsBufferPercent;

@@ -16,7 +16,7 @@ public class ScoreTracker : MonoBehaviour
     private int m_scoreChangeVelocity = 5;
 
     [SerializeField]
-    int[] m_streakAmountForMultiplierIncrease = { 4, 8, 16, 32, 64, 128, 256 };
+    int[] m_streakAmountForMultiplierIncrease = { 4, 8, 12, 16, 24, 32, 40 };
 
     private int m_currentMultiplier;
     private long score;
@@ -54,6 +54,7 @@ public class ScoreTracker : MonoBehaviour
     {
         m_currentMultiplier = 1;
         m_multiplierText.text = string.Format("Multiplier: x{0}", m_currentMultiplier);
+        GameObject.FindObjectOfType<LowPassFilterManager>().SetFromCombo(0);
     }
 
     private void OnStreakIncrease(Events.StreakIncrease evt)
@@ -64,5 +65,7 @@ public class ScoreTracker : MonoBehaviour
         if (evt.streak >= m_streakAmountForMultiplierIncrease[m_currentMultiplier])
             m_currentMultiplier++;
         m_multiplierText.text = string.Format("Multiplier: x{0}", m_currentMultiplier);
+
+        GameObject.FindObjectOfType<LowPassFilterManager>().SetFromCombo(m_currentMultiplier - 1);
     }
 }
