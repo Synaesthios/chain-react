@@ -5,7 +5,6 @@ using System.Linq;
 public class EnemySpawner : MonoBehaviour {
 
 	public Enemy enemy;
-	public Renderer levelBackground;
 	/**
 	  This dictionary holds a list of enemy spawn phases. The key "float" represents
 	  when an enemySpawnPhase will end.
@@ -38,19 +37,19 @@ public class EnemySpawner : MonoBehaviour {
 		return enemySpawnPhases.Values.Last();
 	}
 	private void SpawnEnemy(Enemy enemy) {
-		Vector3 spawnLocation = GetRandomLevelBackgroundCoordinate(levelBackground, enemy.renderer);
+		Vector3 spawnLocation = GetRandomLevelBackgroundCoordinate(enemy.renderer);
 		Instantiate(enemy, spawnLocation, Quaternion.identity);
 	}
 
-	private Vector3 GetRandomLevelBackgroundCoordinate(Renderer levelBackground, Renderer enemy) {
-		float totalXExtent = levelBackground.bounds.extents.x - enemy.bounds.extents.x;
-		float totalZExtent = levelBackground.bounds.extents.z - enemy.bounds.extents.z;
+	private Vector3 GetRandomLevelBackgroundCoordinate(Renderer enemy) {
+		float totalXExtent = LevelBounds.bounds.extents.x - enemy.bounds.extents.x;
+		float totalZExtent = LevelBounds.bounds.extents.z - enemy.bounds.extents.z;
 		
-		float randomX = Random.Range (levelBackground.bounds.center.x - totalXExtent,
-		 	levelBackground.bounds.center.x + totalXExtent);
+		float randomX = Random.Range (LevelBounds.bounds.center.x - totalXExtent,
+		 	LevelBounds.bounds.center.x + totalXExtent);
 		
-		float randomZ = Random.Range (levelBackground.bounds.center.z - totalZExtent,
-			levelBackground.bounds.center.z + totalZExtent);
+		float randomZ = Random.Range (LevelBounds.bounds.center.z - totalZExtent,
+			LevelBounds.bounds.center.z + totalZExtent);
 		
 		return new Vector3 (randomX, 0, randomZ);
 	}

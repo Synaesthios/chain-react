@@ -31,4 +31,8 @@ public class PlayerBullet : MonoBehaviour {
                 break;
         }
 	}
+
+    void OnTriggerEnter(Collider other) {
+        Destroy(gameObject);
+    }
 }

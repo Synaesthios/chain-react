@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Enemy))]
+[RequireComponent(typeof(Enemy), typeof(Rigidbody))]
 public class WanderMovement : MonoBehaviour {
 
     public float ChangeDirectionTimerMax = 5f;
@@ -15,7 +15,6 @@ public class WanderMovement : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
 	}
 	
 	// Update is called once per frame
@@ -38,6 +37,6 @@ public class WanderMovement : MonoBehaviour {
             m_moveTimer -= Time.deltaTime;
         }
 
-        transform.position += m_moveDirection * MoveSpeed * Time.deltaTime;
+        GetComponent<Rigidbody>().MovePosition(transform.position + m_moveDirection * MoveSpeed * Time.deltaTime);
     }
 }
