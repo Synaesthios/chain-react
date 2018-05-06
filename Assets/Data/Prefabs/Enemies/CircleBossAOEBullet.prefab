@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4219300509136434}
   - component: {fileID: 33163733693434222}
   - component: {fileID: 23262298148336842}
-  m_Layer: 12
+  m_Layer: 15
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 135003249987031622}
   - component: {fileID: 54018048212970914}
   - component: {fileID: 114714599514573982}
-  m_Layer: 12
+  m_Layer: 15
   m_Name: CircleBossAOEBullet
   m_TagString: BossBullet
   m_Icon: {fileID: 0}
