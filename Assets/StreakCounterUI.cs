@@ -24,6 +24,10 @@ public class StreakCounterUI : MonoBehaviour
 
     private void OnStreakIncrease(Events.StreakIncrease evt)
     {
+        if(this == null)
+        {
+            return;
+        }
         StartCoroutine(OnStreakIncreaseRoutine(evt.streak));
     }
 
