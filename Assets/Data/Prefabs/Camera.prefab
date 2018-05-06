@@ -111,8 +111,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f94daef354a7e7547872b2514a753bd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 0.5
-  speed: 5
+  duration: 0.25
+  speed: 3
   magnitude: 2
   followTarget: {fileID: 114159262578546748}
 --- !u!124 &124124145597805668
