@@ -56,8 +56,9 @@
 				// sample the texture
 				fixed4 col = tex2D(_MainTex, i.uv);
 
-				col += tex2D(_StarTex, i.uv) * 
+				col += tex2D(_StarTex, TRANSFORM_TEX(i.uv, _StarTex)) *
 				(.2f + (0.6f * ((sin((_Time.y - _MusicStartTime)/ _BeatsPerSecond * 3.14159 * 2) + 2) * 0.5)));
+
 
 				// apply fog
 				UNITY_APPLY_FOG(i.fogCoord, col);

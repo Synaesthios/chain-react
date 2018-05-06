@@ -509,6 +509,10 @@ Prefab:
       propertyPath: m_beatMultiplier
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1289834958168574, guid: 407d0e97576ea184da367657385835dc, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 407d0e97576ea184da367657385835dc, type: 2}
   m_IsPrefabParent: 0
