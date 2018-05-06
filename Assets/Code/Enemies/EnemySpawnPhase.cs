@@ -10,6 +10,8 @@ public class EnemySpawnPhase {
     public int minEnemiesSpawned;
     public List<Enemy> enemiesThatCanSpawn;
     public float timeBetweenEnemySpawns;
+    public Enemy Boss;
+    public float Duration;
 
     private float timeSinceLastRespawn;
 

@@ -144,7 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChangeDirectionTimerMax: 5
   ChangeDirectionTimerMin: 2
-  MoveSpeed: 0
+  MoveSpeed: 1
 --- !u!114 &114532188320622012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -161,7 +161,7 @@ MonoBehaviour:
   - {fileID: 1859429370541058, guid: 01b30e8f6936b9a4ab47e8189d0320bb, type: 2}
   - {fileID: 1807491144195126, guid: 2e4446fde6b3a7642bb99535b079bc28, type: 2}
   Alive: 1
-  renderer: {fileID: 0}
+  renderer: {fileID: 23225786660845072}
 --- !u!135 &135331509187537026
 SphereCollider:
   m_ObjectHideFlags: 1
