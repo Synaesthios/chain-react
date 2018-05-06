@@ -8,7 +8,7 @@ public class SquareBoss : Enemy
     private const float PulseFireRate = 2f;
     private float m_pulseFireTimer = 0f;
 
-    private const float StreamFireRate = 0.2f;
+    private const float StreamFireRate = 0.1f;
     private float m_streamFireTimer = 0f;
     private const float SineWaveFreq = 1f;
     private const float SineWaveMag = 0.25f;

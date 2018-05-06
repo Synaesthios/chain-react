@@ -70,7 +70,6 @@ public class PlayerFireScript : MonoBehaviour {
 
         if (!m_alreadyFiredForThisBeat && Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Firing");
             if (GetFireRating() == BeatRating.Perfect)
             {
                 Streak++;
