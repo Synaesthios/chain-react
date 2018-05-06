@@ -20,12 +20,26 @@ public class PlayerFireScript : MonoBehaviour {
     [SerializeField]
     float m_perfectRatingSecondsBuffer = 0.2f;
 
+    [SerializeField]
+    AudioSource m_audioSource;
+
+    [SerializeField]
+    float m_beatMultiplier = 2f;
+
     private float m_elapsedSecondsSinceLastBeat;
     private bool m_alreadyFiredForThisBeat;
+
     public int Streak { get; private set; }
 
-	// Update is called once per frame
-	void Update ()
+    private void Awake()
+    {
+        m_secondsBetweenBeats = UniBpmAnalyzer.AnalyzeBpm(m_audioSource.clip) / (60.0f * m_beatMultiplier);
+        m_goodRatingSecondsBuffer = m_secondsBetweenBeats * 0.3f;
+        m_perfectRatingSecondsBuffer = m_secondsBetweenBeats * 0.2f;
+    }
+
+    // Update is called once per frame
+    void Update ()
     {
         m_elapsedSecondsSinceLastBeat += Time.deltaTime;
         if (m_elapsedSecondsSinceLastBeat > m_secondsBetweenBeats)
