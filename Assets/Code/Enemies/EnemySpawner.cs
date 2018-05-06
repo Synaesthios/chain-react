@@ -51,7 +51,7 @@ public class EnemySpawner : MonoBehaviour {
             minEnemiesSpawned = 4,
             maxEnemiesSpawned = 5,
             enemiesThatCanSpawn = new List<Enemy>() { basicEnemy, followerEnemy, followerEnemy },
-            timeBetweenEnemySpawns = 5
+            timeBetweenEnemySpawns = 4
         });
 
         // Boss 2
