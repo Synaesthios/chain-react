@@ -7,13 +7,21 @@ public class GameOverTracker : MonoBehaviour {
 
 	public PlayerScript player;
 	public Text gameOverText;
-	void Start () {
+    public Button restartButton;
+    void Start () {
 		
 	}
 	
 	void Update () {
 		if (player.isDead()) {
 			gameOverText.enabled = true;
-		}
+            restartButton.gameObject.SetActive(true);
+
+        }
 	}
+
+    public void RestartGame()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
 }

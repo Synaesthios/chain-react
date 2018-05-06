@@ -42,12 +42,8 @@ public class CircleBoss : Enemy {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-
-        // Rotate to look at the enemy.
-        Vector3 directionToPlayer = (GameObject.FindObjectOfType<PlayerScript>().transform.position - transform.position).normalized;
-        transform.rotation = Quaternion.LookRotation(directionToPlayer, Vector3.up);
-
+	void Update ()
+    {
         // Pulse AOE
         if (m_pulseFireTimer < 0)
         {
@@ -58,6 +54,14 @@ public class CircleBoss : Enemy {
         {
             m_pulseFireTimer -= Time.deltaTime;
         }
+
+        // Rotate to look at the enemy.
+        if (GameObject.FindObjectOfType<PlayerScript>() == null)
+        {
+            return;
+        }
+        Vector3 directionToPlayer = (GameObject.FindObjectOfType<PlayerScript>().transform.position - transform.position).normalized;
+        transform.rotation = Quaternion.LookRotation(directionToPlayer, Vector3.up);
 
         // Fire streams
         if (m_streamFireTimer < 0)
