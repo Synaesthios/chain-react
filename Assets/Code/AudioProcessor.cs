@@ -228,6 +228,7 @@ public class AudioProcessor : MonoBehaviour
                 if (sinceLast > tempopd / 4)
                 {
                     onBeat.Invoke();
+                    EventSystem.Fire(new Events.OnBeat());
                     blipDelay[0] = 1;
                     // record that we did actually mark a beat this frame
                     dobeat[now] = 1;

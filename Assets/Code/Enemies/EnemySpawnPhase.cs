@@ -15,6 +15,9 @@ public class EnemySpawnPhase {
 
     private float timeSinceLastRespawn;
 
+    // 120 bpm to 4x spawn multiplier with 0.03333f
+    private const float c_spawnMultiplierPerBeat = 0.0333333f; 
+
     /**
         Gets a list of enemies to spawn depending on the current time in the game
      */
@@ -22,6 +25,7 @@ public class EnemySpawnPhase {
         List<Enemy> enemiesToSpawn = new List<Enemy>();
         if (currentTime > timeBetweenEnemySpawns + timeSinceLastRespawn) {
             float numberOfEnemies = Random.Range(minEnemiesSpawned, maxEnemiesSpawned);
+            numberOfEnemies = Mathf.RoundToInt(numberOfEnemies * MusicManager.CurrentBPM * c_spawnMultiplierPerBeat);
             for (int i = 0; i < numberOfEnemies; i++) {
                 enemiesToSpawn.Add(
                     enemiesThatCanSpawn[Random.Range(0, enemiesThatCanSpawn.Count)]);
