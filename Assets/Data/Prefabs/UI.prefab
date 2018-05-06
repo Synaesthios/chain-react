@@ -531,6 +531,11 @@ MonoBehaviour:
   m_playerFireScript: {fileID: 0}
   m_ring: {fileID: 114450373353309764}
   m_inner: {fileID: 114957994878541948}
+  m_0: {fileID: 21300000, guid: 8933529f8a100ef4890f498d028b8a17, type: 3}
+  m_1: {fileID: 21300000, guid: b3f03b45c5b0bec41bb8d0315b2fdb1e, type: 3}
+  m_2: {fileID: 21300000, guid: 483aaada5c7adac4c9e0524a741f143b, type: 3}
+  m_3: {fileID: 21300000, guid: fe78f8b60f344e448801c4a66252e1fe, type: 3}
+  m_4: {fileID: 21300000, guid: 80fffb13b72bc314cae03441c35b9cc2, type: 3}
   m_startRingScale: 3
   m_endRingScale: 1
   m_startRingColor: {r: 0, g: 0, b: 0, a: 0}
@@ -751,6 +756,11 @@ MonoBehaviour:
   m_playerFireScript: {fileID: 0}
   m_ring: {fileID: 114450373353309764}
   m_inner: {fileID: 114957994878541948}
+  m_0: {fileID: 21300000, guid: 8933529f8a100ef4890f498d028b8a17, type: 3}
+  m_1: {fileID: 21300000, guid: b3f03b45c5b0bec41bb8d0315b2fdb1e, type: 3}
+  m_2: {fileID: 21300000, guid: 483aaada5c7adac4c9e0524a741f143b, type: 3}
+  m_3: {fileID: 21300000, guid: fe78f8b60f344e448801c4a66252e1fe, type: 3}
+  m_4: {fileID: 21300000, guid: 80fffb13b72bc314cae03441c35b9cc2, type: 3}
   m_startRingScale: 3
   m_endRingScale: 1
   m_startRingColor: {r: 0, g: 0, b: 0, a: 0}
@@ -774,7 +784,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 8933529f8a100ef4890f498d028b8a17, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

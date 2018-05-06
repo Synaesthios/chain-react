@@ -15,6 +15,21 @@ public class BeatTrackerUI : MonoBehaviour
     Image m_inner;
 
     [SerializeField]
+    Sprite m_0;
+
+    [SerializeField]
+    Sprite m_1;
+
+    [SerializeField]
+    Sprite m_2;
+
+    [SerializeField]
+    Sprite m_3;
+
+    [SerializeField]
+    Sprite m_4;
+
+    [SerializeField]
     float m_startRingScale = 3f;
 
     [SerializeField]
@@ -55,6 +70,33 @@ public class BeatTrackerUI : MonoBehaviour
                 Mathf.PingPong(elapsed / m_showFireEffectSeconds * 2f, 1f));
         }
 
+        if(rating.ToString() == "Perfect")
+        {
+            if(m_inner.sprite == m_0)
+            {
+                m_inner.sprite = m_1;
+            }
+            else if (m_inner.sprite == m_1)
+            {
+                m_inner.sprite = m_2;
+            }
+            else if (m_inner.sprite == m_2)
+            {
+                m_inner.sprite = m_3;
+            }
+            else if (m_inner.sprite == m_3)
+            {
+                m_inner.sprite = m_4;
+            }
+            else if (m_inner.sprite == m_4)
+            {
+                m_inner.sprite = m_1;
+            }
+        }
+        else
+        {
+            m_inner.sprite = m_0;
+        }
         m_inner.color = Color.white;
     }
 }
