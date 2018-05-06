@@ -41,6 +41,9 @@ public class PlayerBullet : MonoBehaviour {
 	}
 
     void OnTriggerEnter(Collider other) {
-        Destroy(gameObject);
+        if (other.gameObject.tag != "EnemyBullet")
+        {
+            Destroy(gameObject);
+        }
     }
 }
