@@ -796,7 +796,8 @@ MonoBehaviour:
     type: 2}
   circleBoss: {fileID: 114532188320622012, guid: 1f9226f55e57e364ab94d5b1048a6707,
     type: 2}
-  squareBoss: {fileID: 0}
+  squareBoss: {fileID: 114198616549191024, guid: 305afdf495902ba41b049233bc6716dc,
+    type: 2}
   levelBackground: {fileID: 1942314744}
 --- !u!23 &1942314744
 MeshRenderer:
