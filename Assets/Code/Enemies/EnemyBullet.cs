@@ -44,4 +44,10 @@ public class EnemyBullet : MonoBehaviour
     {
         transform.position += m_info.Direction * m_info.Speed * Time.deltaTime;
     }
+
+    private void OnValidate()
+    {
+        gameObject.tag = "EnemyBullet";
+        gameObject.layer = LayerMask.NameToLayer("EnemyBullets");
+    }
 }
