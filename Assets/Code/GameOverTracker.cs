@@ -22,6 +22,6 @@ public class GameOverTracker : MonoBehaviour {
 
     public void RestartGame()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Game");
     }
 }
