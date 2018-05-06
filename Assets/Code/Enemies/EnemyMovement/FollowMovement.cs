@@ -27,5 +27,6 @@ public class FollowMovement : MonoBehaviour {
 
         // Move along the path to the player.
         transform.position += vectorToPlayer * MoveSpeed * Time.deltaTime;
+        transform.rotation = Quaternion.LookRotation(vectorToPlayer, Vector3.up);
     }
 }
