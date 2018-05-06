@@ -22,7 +22,8 @@ public static class EventSystem
 
         public void Fire(T evt)
         {
-            m_handlers.Invoke(evt);
+            if (m_handlers != null)
+                m_handlers.Invoke(evt);
         }
     }
 
