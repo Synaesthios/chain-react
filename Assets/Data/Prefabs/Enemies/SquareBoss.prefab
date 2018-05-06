@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4957507868250538}
   - component: {fileID: 198516364003151332}
   - component: {fileID: 199116820463733912}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4734820626722990}
   - component: {fileID: 198662707195409194}
   - component: {fileID: 199176398308691160}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4297360279452078}
   - component: {fileID: 114788286683920114}
   - component: {fileID: 114706238917770158}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: DestroyExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4387253184674184}
   - component: {fileID: 198631792708872398}
   - component: {fileID: 199919285513127192}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: TrailsWhite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4318442734915278}
   - component: {fileID: 198661569544690348}
   - component: {fileID: 199441586404479684}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 4393034091936922}
   - component: {fileID: 198083597077915166}
   - component: {fileID: 199486646513971282}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Trail White
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 4452156650864048}
   - component: {fileID: 198094780394089742}
   - component: {fileID: 199548816879687568}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Trail White
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 4892258979666030}
   - component: {fileID: 23225786660845072}
   - component: {fileID: 33678415612693422}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 4888110705942654}
   - component: {fileID: 198821949408022346}
   - component: {fileID: 199730653017185686}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 4669605033390248}
   - component: {fileID: 198893506997756376}
   - component: {fileID: 199500217349064096}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: TrailsWhite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 4255477769366840}
   - component: {fileID: 114956088776827036}
   - component: {fileID: 114880812497147458}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: EntranceExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 135331509187537026}
   - component: {fileID: 54559768097596788}
   - component: {fileID: 114198616549191024}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: SquareBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}

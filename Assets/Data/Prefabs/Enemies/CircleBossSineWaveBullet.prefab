@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4498910708926038}
   - component: {fileID: 33933839966588088}
   - component: {fileID: 23410731961384864}
-  m_Layer: 12
+  m_Layer: 15
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 135741169544777022}
   - component: {fileID: 54250388461332858}
   - component: {fileID: 114316922906977808}
-  m_Layer: 12
+  m_Layer: 15
   m_Name: CircleBossSineWaveBullet
   m_TagString: BossBullet
   m_Icon: {fileID: 0}

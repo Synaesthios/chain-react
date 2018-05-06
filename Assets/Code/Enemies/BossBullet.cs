@@ -8,6 +8,6 @@ public class BossBullet : EnemyBullet
     private void OnValidate()
     {
         gameObject.tag = "BossBullet";
-        gameObject.layer = LayerMask.NameToLayer("EnemyBullets");
+        gameObject.layer = LayerMask.NameToLayer("BossBullets");
     }
 }
