@@ -533,6 +533,47 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 609820822}
   m_Script: {fileID: 11500000, guid: b623e3957664587468c70011c480493d, type: 3}
+--- !u!1 &609820826 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1787416461384132, guid: 407d0e97576ea184da367657385835dc,
+    type: 2}
+  m_PrefabInternal: {fileID: 609820822}
+--- !u!108 &609820827
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 609820826}
+  m_Enabled: 1
+  serializedVersion: 8
+  m_Type: 2
+  m_Color: {r: 1, g: 0, b: 0.54529476, a: 1}
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1001 &800213981
 Prefab:
   m_ObjectHideFlags: 0
@@ -664,7 +705,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4377564298442098, guid: c2e2c22960c15a341914cd0b13d93cbb, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 13.65
+      value: 16.05
       objectReference: {fileID: 0}
     - target: {fileID: 4377564298442098, guid: c2e2c22960c15a341914cd0b13d93cbb, type: 2}
       propertyPath: m_LocalPosition.z
@@ -705,9 +746,31 @@ Prefab:
       propertyPath: offset.y
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 20132666557001044, guid: c2e2c22960c15a341914cd0b13d93cbb,
+        type: 2}
+      propertyPath: m_RenderingPath
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c2e2c22960c15a341914cd0b13d93cbb, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &846418042 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1246462682594822, guid: c2e2c22960c15a341914cd0b13d93cbb,
+    type: 2}
+  m_PrefabInternal: {fileID: 846418041}
+--- !u!114 &846418043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 846418042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 01ed0c18cf18caa4b97ad683e89926ed, type: 2}
 --- !u!1001 &1209836065
 Prefab:
   m_ObjectHideFlags: 0
@@ -948,9 +1011,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59eb2d76efc3f984ba13afd0f7f4f006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basicEnemy: {fileID: 114441220380095130, guid: 2bed37852c9ce274a8cbe12fc8f537ce,
+  basicEnemy: {fileID: 114441220380095130, guid: 86feda36884ae7140b8ebe4c6ba3d41b,
     type: 2}
-  followerEnemy: {fileID: 114610054675416008, guid: 5d2c4d53b030ab44eb3815e62f252ead,
+  followerEnemy: {fileID: 114610054675416008, guid: 1a9eed572c0c6a84087e008b6a8f2d07,
     type: 2}
   circleBoss: {fileID: 114532188320622012, guid: 1f9226f55e57e364ab94d5b1048a6707,
     type: 2}

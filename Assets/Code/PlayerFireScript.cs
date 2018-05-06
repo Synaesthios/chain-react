@@ -37,7 +37,6 @@ public class PlayerFireScript : MonoBehaviour {
     private void Awake()
     {
         m_secondsBetweenBeats = 1 / (UniBpmAnalyzer.AnalyzeBpm(m_audioSource.clip)/ (60.0f));
-        Shader.SetGlobalFloat("_BeatsPerSecond", m_secondsBetweenBeats);
         m_audioSource.Play();
         m_musicStartTime = AudioSettings.dspTime + c_delayBeforeMusicStarts;
         m_previousBeatTime = m_musicStartTime;
@@ -89,6 +88,8 @@ public class PlayerFireScript : MonoBehaviour {
             var bullet = Instantiate(m_bulletPrefab, transform.position + transform.forward * 2f, transform.rotation);
             bullet.Init(GetFireRating());
         }
+
+        Shader.SetGlobalFloat("_BeatPercentage", ToBeatCenterPercentage);
 	}
 
     private float GetSecondsDifferenceFromBeat()
