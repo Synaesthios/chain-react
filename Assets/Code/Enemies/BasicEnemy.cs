@@ -12,65 +12,47 @@ public class BasicEnemy : Enemy
     /// </summary>
     protected override List<BulletSpawnInfo> BulletPattern {
         get {
-            return new List<BulletSpawnInfo>()
+
+            if(Random.Range(0,10) < 5)
             {
-                new BulletSpawnInfo()
+                return new List<BulletSpawnInfo>()
                 {
-                    Delay = 0,
-                    Direction = new Vector3(0, 0, 1),
-                    Speed = BulletMoveSpeed,
-                    PrefabIndex = 0
-                },
-                new BulletSpawnInfo()
+                    new BulletSpawnInfo()
+                    {
+                        Delay = 0,
+                        Direction = new Vector3(1, 0, 0),
+                        Speed = BulletMoveSpeed,
+                        PrefabIndex = 0
+                    },
+                    new BulletSpawnInfo()
+                    {
+                        Delay = 0,
+                        Direction = new Vector3(-1, 0, 0),
+                        Speed = BulletMoveSpeed,
+                        PrefabIndex = 0
+                    },
+                };
+            }
+            else
+            {
+                return new List<BulletSpawnInfo>()
                 {
-                    Delay = 0,
-                    Direction = new Vector3(0, 0, -1),
-                    Speed = BulletMoveSpeed,
-                    PrefabIndex = 0
-                },
-                new BulletSpawnInfo()
-                {
-                    Delay = 0,
-                    Direction = new Vector3(1, 0, 0),
-                    Speed = BulletMoveSpeed,
-                    PrefabIndex = 0
-                },
-                new BulletSpawnInfo()
-                {
-                    Delay = 0,
-                    Direction = new Vector3(-1, 0, 0),
-                    Speed = BulletMoveSpeed,
-                    PrefabIndex = 0
-                },
-                new BulletSpawnInfo()
-                {
-                    Delay = 0.5f,
-                    Direction = new Vector3(0, 0, 1),
-                    Speed = BulletMoveSpeed,
-                    PrefabIndex = 0
-                },
-                new BulletSpawnInfo()
-                {
-                    Delay = 0.5f,
-                    Direction = new Vector3(0, 0, -1),
-                    Speed = BulletMoveSpeed,
-                    PrefabIndex = 0
-                },
-                new BulletSpawnInfo()
-                {
-                    Delay = 0.5f,
-                    Direction = new Vector3(1, 0, 0),
-                    Speed = BulletMoveSpeed,
-                    PrefabIndex = 0
-                },
-                new BulletSpawnInfo()
-                {
-                    Delay = 0.5f,
-                    Direction = new Vector3(-1, 0, 0),
-                    Speed = BulletMoveSpeed,
-                    PrefabIndex = 0
-                }
-            };
+                    new BulletSpawnInfo()
+                    {
+                        Delay = 0,
+                        Direction = new Vector3(0, 0, 1),
+                        Speed = BulletMoveSpeed,
+                        PrefabIndex = 0
+                    },
+                    new BulletSpawnInfo()
+                    {
+                        Delay = 0,
+                        Direction = new Vector3(0, 0, -1),
+                        Speed = BulletMoveSpeed,
+                        PrefabIndex = 0
+                    }
+                };
+            }
         }
     }
 
