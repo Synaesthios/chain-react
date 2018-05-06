@@ -31,6 +31,7 @@ public class WanderMovement : MonoBehaviour {
                 Random.Range(-1f, 1f),
                 0,
                 Random.Range(-1f, 1f));
+            transform.rotation = Quaternion.LookRotation(m_moveDirection, Vector3.up);
         }
         else
         {
