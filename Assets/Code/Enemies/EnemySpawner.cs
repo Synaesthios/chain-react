@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour {
     public Enemy followerEnemy;
 
     public Enemy circleBoss;
+    public Enemy squareBoss;
 
     public Renderer levelBackground;
 
@@ -46,9 +47,9 @@ public class EnemySpawner : MonoBehaviour {
         // Enemies 2
         SpawnPhases.Add(new EnemySpawnPhase()
         {
-            Duration = 60,
-            minEnemiesSpawned = 3,
-            maxEnemiesSpawned = 4,
+            Duration = 10,
+            minEnemiesSpawned = 4,
+            maxEnemiesSpawned = 5,
             enemiesThatCanSpawn = new List<Enemy>() { basicEnemy, followerEnemy, followerEnemy },
             timeBetweenEnemySpawns = 5
         });
@@ -56,7 +57,7 @@ public class EnemySpawner : MonoBehaviour {
         // Boss 2
         SpawnPhases.Add(new EnemySpawnPhase()
         {
-            Boss = circleBoss,
+            Boss = squareBoss,
             minEnemiesSpawned = 3,
             maxEnemiesSpawned = 4,
             enemiesThatCanSpawn = new List<Enemy>() { basicEnemy, followerEnemy },
@@ -67,8 +68,8 @@ public class EnemySpawner : MonoBehaviour {
         SpawnPhases.Add(new EnemySpawnPhase()
         {
             Duration = 60,
-            minEnemiesSpawned = 3,
-            maxEnemiesSpawned = 4,
+            minEnemiesSpawned = 5,
+            maxEnemiesSpawned = 6,
             enemiesThatCanSpawn = new List<Enemy>() { basicEnemy, followerEnemy, followerEnemy },
             timeBetweenEnemySpawns = 5
         });
