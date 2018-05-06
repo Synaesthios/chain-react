@@ -11,9 +11,11 @@ public class PlayerBullet : MonoBehaviour {
     private Renderer m_renderer;
     private TrailRenderer m_trailRenderer;
     private Rigidbody m_rigidBody;
+    private BeatRating m_rating;
 
 	public void Init (BeatRating rating)
     {
+        m_rating = rating;
         m_rigidBody = GetComponent<Rigidbody>();
         m_renderer = GetComponent<Renderer>();
         m_trailRenderer = GetComponent<TrailRenderer>();
@@ -40,10 +42,9 @@ public class PlayerBullet : MonoBehaviour {
         }
 	}
 
-    void OnTriggerEnter(Collider other) {
-        if (other.gameObject.tag != "EnemyBullet" && other.gameObject.tag != "BossBullet")
-        {
+    public void HitEnemy()
+    {
+        if (m_rating != BeatRating.Perfect)
             Destroy(gameObject);
-        }
     }
 }

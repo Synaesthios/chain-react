@@ -28,7 +28,7 @@ public abstract class Enemy : MonoBehaviour {
         if (!Alive)
             return;
 
-        if(col.transform.gameObject.tag == "EnemyBullet" || col.transform.gameObject.tag == "PlayerBullet")
+        if (col.transform.gameObject.tag == "EnemyBullet")
         {
             var enemyBullet = col.gameObject.GetComponent<EnemyBullet>();
             if (enemyBullet != null)
@@ -44,12 +44,18 @@ public abstract class Enemy : MonoBehaviour {
             {
                 Destroy(col.gameObject);
             }
+        }
+        else if (col.transform.gameObject.tag == "PlayerBullet")
+        {
+            var playerBullet = col.gameObject.GetComponent<PlayerBullet>();
+            if (playerBullet != null)
+                playerBullet.HitEnemy();
+        }
 
-            Health -= 1;
-            if(Health <= 0)
-            {
-                Explode();
-            }
+        Health -= 1;
+        if(Health <= 0)
+        {
+            Explode();
         }
     }
 
