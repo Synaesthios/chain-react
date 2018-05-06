@@ -106,11 +106,13 @@ public abstract class Enemy : MonoBehaviour {
 
     private IEnumerator ExplodeRoutine()
     {
-        var material = GetComponentInChildren<Renderer>().material;
+        var materials = GetComponentInChildren<Renderer>().materials;
         for (float elapsed = 0f; elapsed < 1f; elapsed += Time.deltaTime)
         {
             yield return null;
-            material.SetFloat(c_explodeId, (elapsed / 2f) + 0.5f);
+
+            foreach (var material in materials)
+                material.SetFloat(c_explodeId, (elapsed / 2f) + 0.5f);
         }
         Destroy(gameObject);
     }
@@ -123,7 +125,9 @@ public abstract class Enemy : MonoBehaviour {
         m_explodeOnNextBeat = true;
         GetComponent<Collider>().enabled = false;
         EventSystem.Fire(new Events.EnemyDied(100));
-        GetComponentInChildren<Renderer>().material.SetFloat(c_explodeId, 0.5f);
+        var materials = GetComponentInChildren<Renderer>().materials;
+        foreach (var material in materials)
+            material.SetFloat(c_explodeId, 0.5f);
         Alive = false;
     }
 
