@@ -34,7 +34,6 @@ public class LowPassFilterManager : MonoBehaviour {
         float currentFreq = LowPassFilter.cutoffFrequency;
 
         currentFreq = Mathf.Lerp(currentFreq, m_desiredAmount, LerpSpeed * Time.deltaTime);
-        Debug.Log("Current: " + currentFreq + " | Desired: " + m_desiredAmount);
         LowPassFilter.cutoffFrequency = currentFreq;
 
     }
