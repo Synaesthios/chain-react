@@ -17,14 +17,17 @@ public class LoadScene : MonoBehaviour {
         m_asyncLoading = SceneManager.LoadSceneAsync("Game");
         m_asyncLoading.allowSceneActivation = false;
     }
-	public void ChangeScene() {
-		animator.SetTrigger("PlayTitle");
-        m_asyncLoading.allowSceneActivation = true;
-	}
     public void ChangeSceneWithSongIndex(int songIndex)
     {
         gameSongIndex = songIndex;
         animator.SetTrigger("PlayTitle");
-        m_asyncLoading.allowSceneActivation = true;
+        
+    }
+    private void Update()
+    {
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("End"))
+        {
+            m_asyncLoading.allowSceneActivation = true;
+        }
     }
 }
