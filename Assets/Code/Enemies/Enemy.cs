@@ -122,6 +122,8 @@ public abstract class Enemy : MonoBehaviour {
     /// </summary>
     private void Die()
     {
+        StopAllCoroutines();
+
         m_explodeOnNextBeat = true;
         GetComponent<Collider>().enabled = false;
         EventSystem.Fire(new Events.EnemyDied(100, transform.position));
