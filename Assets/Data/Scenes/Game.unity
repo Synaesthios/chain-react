@@ -664,6 +664,10 @@ Prefab:
       propertyPath: m_playerFireScript
       value: 
       objectReference: {fileID: 609820825}
+    - target: {fileID: 1629238965832832, guid: e0ce2f5bc33aa6e43b5aecb86c639f9c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0ce2f5bc33aa6e43b5aecb86c639f9c, type: 2}
   m_IsPrefabParent: 0
@@ -1005,6 +1009,11 @@ Prefab:
         type: 2}
       propertyPath: m_BackGroundColor.b
       value: 0.122641504
+      objectReference: {fileID: 0}
+    - target: {fileID: 20132666557001044, guid: c2e2c22960c15a341914cd0b13d93cbb,
+        type: 2}
+      propertyPath: m_HDR
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c2e2c22960c15a341914cd0b13d93cbb, type: 2}
