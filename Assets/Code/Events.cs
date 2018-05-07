@@ -20,9 +20,11 @@ namespace Events
     struct EnemyDied
     {
         public int scoreValue;
-        public EnemyDied(int scoreValue)
+        public Vector3 position;
+        public EnemyDied(int scoreValue, Vector3 position)
         {
             this.scoreValue = scoreValue;
+            this.position = position;
         }
     }
 

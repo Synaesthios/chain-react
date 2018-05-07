@@ -124,7 +124,7 @@ public abstract class Enemy : MonoBehaviour {
     {
         m_explodeOnNextBeat = true;
         GetComponent<Collider>().enabled = false;
-        EventSystem.Fire(new Events.EnemyDied(100));
+        EventSystem.Fire(new Events.EnemyDied(100, transform.position));
         var materials = GetComponentInChildren<Renderer>().materials;
         foreach (var material in materials)
             material.SetFloat(c_explodeId, 0.5f);
