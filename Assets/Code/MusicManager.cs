@@ -65,7 +65,7 @@ public class MusicManager : MonoBehaviour
     {
         if (!m_audioSource.isPlaying && !m_nextMusicScheduled)
         {
-            m_audioSource.clip = m_music[Random.Range(0, m_music.Length)];
+            m_audioSource.clip = m_music[LoadScene.gameSongIndex];
             m_beatAudioSource.clip = m_audioSource.clip;
             SetupNextMusic();
             m_nextMusicScheduled = true;

@@ -13,6 +13,8 @@ public class ScoreTracker : MonoBehaviour
     Text m_multiplierText;
 
     [SerializeField]
+    private float m_maxCountUpSeconds = 2f;
+
     private int m_scoreChangeVelocity = 5;
     private int m_scoreChangeVelocityFast = 20;
     private const int ScoreChangeVelocityFastCutoff = 10000;
@@ -56,6 +58,7 @@ public class ScoreTracker : MonoBehaviour
     private void OnEnemyDied(Events.EnemyDied evt)
     {
         score += evt.scoreValue * m_currentMultiplier;
+        m_scoreChangeVelocity = Mathf.RoundToInt((float)(score - displayedScore) / m_maxCountUpSeconds);
     }
 
     private void OnStreakEnded(Events.StreakEnded evt)

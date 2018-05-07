@@ -7,21 +7,29 @@ public class GameOverTracker : MonoBehaviour {
 
 	public PlayerScript player;
 	public Text gameOverText;
-    public Button restartButton;
-    void Start () {
-		
-	}
-	
+    public GameObject gameOverUI;
+    public InputField highScoreInput;
+    public GameObject highScoreUI;
+
 	void Update () {
 		if (player.isDead()) {
 			gameOverText.enabled = true;
-            restartButton.gameObject.SetActive(true);
+            gameOverUI.SetActive(true);
 
         }
 	}
 
     public void RestartGame()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Game");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+    }
+
+    public void SubmitHighScore()
+    {
+        if (string.IsNullOrEmpty(highScoreInput.text))
+            return;
+
+        gameOverText.enabled = false;
+        highScoreUI.SetActive(true);
     }
 }

@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Animations;
 public class LoadScene : MonoBehaviour {
 
+    public static int gameSongIndex;
+
 	[SerializeField]
 	private Animator animator;
 
@@ -19,4 +21,10 @@ public class LoadScene : MonoBehaviour {
 		animator.SetTrigger("PlayTitle");
         m_asyncLoading.allowSceneActivation = true;
 	}
+    public void ChangeSceneWithSongIndex(int songIndex)
+    {
+        gameSongIndex = songIndex;
+        animator.SetTrigger("PlayTitle");
+        m_asyncLoading.allowSceneActivation = true;
+    }
 }

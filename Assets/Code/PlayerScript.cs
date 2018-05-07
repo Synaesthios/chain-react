@@ -12,6 +12,8 @@ public class PlayerScript : MonoBehaviour {
 	public Renderer shipRenderer;
 
 	public float secondsOfInvulnerability;
+    private bool m_invulnerable;
+
 	void Start () {
 		mainCamera = FindObjectOfType<Camera>();
 		rigidbody = GetComponent<Rigidbody>();	
@@ -46,9 +48,13 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	private void loseHealth() {
+        if (m_invulnerable)
+            return;
+
 		StartCoroutine("Invulnerable");
 		Health -= 1;
 		if (isDead()){
+            EventSystem.Fire(new Events.PlayerDied());
 			gameObject.SetActive(false);
 		}
         GameObject.FindObjectOfType<LowPassFilterManager>().SetFilterAmountImmediate(0);
@@ -72,7 +78,7 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	IEnumerator Invulnerable() {
-		GetComponent<Collider>().enabled = false;
+        m_invulnerable = true;
 		float flickerRate = 0.1f;
 		float timesToFlicker = secondsOfInvulnerability/flickerRate;
 		for (int i = 0; i < timesToFlicker; i++) {
@@ -80,6 +86,6 @@ public class PlayerScript : MonoBehaviour {
 			yield return new WaitForSeconds(flickerRate);
 		}
 		shipRenderer.enabled = true;
-		GetComponent<Collider>().enabled = true;
+        m_invulnerable = false;
 	}
 }

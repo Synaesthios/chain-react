@@ -40,4 +40,8 @@ namespace Events
     struct OnBeat
     {
     }
+
+    struct PlayerDied
+    {
+    }
 }
