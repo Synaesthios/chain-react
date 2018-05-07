@@ -20,7 +20,7 @@ public class EnemySpawnPhase : ScriptableObject
     // 120 bpm to 4x spawn multiplier with 0.03333f
     private const float c_spawnMultiplierPerBeat = 0.0333333f;
 
-    private void OnEnable()
+    public void Setup()
     {
         timeSinceLastRespawn = 0;
     }

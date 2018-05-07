@@ -19,6 +19,7 @@ public class EnemySpawner : MonoBehaviour {
 	void Start () {
         EventSystem.Subscribe<Events.PlayerDied>((evt) => { enabled = false; });
         EventSystem.Subscribe<Events.BossDied>(OnBossDied);
+        GetCurrentEnemySpawnPhase().Setup();
     }
 	
 	void Update () {
@@ -46,6 +47,7 @@ public class EnemySpawner : MonoBehaviour {
         // Reset the counters and indexes
         m_timeSinceLastPhase = 0;
         m_currentPhase++;
+        GetCurrentEnemySpawnPhase().Setup();
         if (m_currentPhase >= SpawnPhases.Count)
         {
             // Don't loop back to easy mode, loop through the harder modes.
