@@ -5,7 +5,9 @@ using UnityEngine;
 /**
   Describes how enemies will spawn during a phase
  */
-public class EnemySpawnPhase {
+ [CreateAssetMenu(fileName = "EnemySpawnPhase", menuName = "Game/EnemySpawnPhase")]
+public class EnemySpawnPhase : ScriptableObject
+{
     public int maxEnemiesSpawned;
     public int minEnemiesSpawned;
     public List<Enemy> enemiesThatCanSpawn;

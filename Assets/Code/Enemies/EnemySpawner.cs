@@ -3,14 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 public class EnemySpawner : MonoBehaviour {
-
-	public Enemy basicEnemy;
-    public Enemy followerEnemy;
-
-    public Enemy circleBoss;
-    public Enemy squareBoss;
-
     public Renderer levelBackground;
+
+    [SerializeField]
+	private List<EnemySpawnPhase> SpawnPhases;
 
     private float m_timeSinceLastPhase = 0;
     private int m_currentPhase = 0;
@@ -19,9 +15,9 @@ public class EnemySpawner : MonoBehaviour {
 	  This dictionary holds a list of enemy spawn phases. The key "float" represents
 	  when an enemySpawnPhase will end.
 	 */
-	private List<EnemySpawnPhase> SpawnPhases;
 	
 	void Start () {
+        /*
         SpawnPhases = new List<EnemySpawnPhase>();
 
         // Enemies 1
@@ -103,6 +99,7 @@ public class EnemySpawner : MonoBehaviour {
             enemiesThatCanSpawn = new List<Enemy>() { followerEnemy, followerEnemy },
             timeBetweenEnemySpawns = 5
         });
+        */
 
         EventSystem.Subscribe<Events.BossDied>(OnBossDied);
     }

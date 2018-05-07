@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cb2a24e1aefbc74fa421e856a586b7d, type: 3}
+  m_Name: FirstPhase
+  m_EditorClassIdentifier: 
+  maxEnemiesSpawned: 4
+  minEnemiesSpawned: 3
+  enemiesThatCanSpawn:
+  - {fileID: 114610054675416008, guid: 1a9eed572c0c6a84087e008b6a8f2d07, type: 2}
+  - {fileID: 114441220380095130, guid: 86feda36884ae7140b8ebe4c6ba3d41b, type: 2}
+  timeBetweenEnemySpawns: 5
+  Boss: {fileID: 0}
+  Duration: 30
