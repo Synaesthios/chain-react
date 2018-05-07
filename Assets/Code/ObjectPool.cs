@@ -45,6 +45,6 @@ public class ObjectPool : MonoBehaviour
     {
         obj.transform.SetParent(transform, false);
         obj.transform.localPosition = Vector3.zero;
-        //m_objectPool[prefab].Enqueue(obj);
+        m_objectPool[prefab].Enqueue(obj);
     }
 }
