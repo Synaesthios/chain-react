@@ -14,13 +14,23 @@ public class DeathCamera : MonoBehaviour
         gameObject.SetActive(true);
         GetComponent<UnityStandardAssets.Utility.FollowTarget>().enabled = false;
         EventSystem.Subscribe<Events.EnemyDied>(OnEnemyDied);
+        EventSystem.Subscribe<Events.BossDied>(OnBossDied);
+    }
+
+
+    void OnBossDied(Events.BossDied evt)
+    {
+        UpdateCamera(evt.position);
     }
 
     void OnEnemyDied(Events.EnemyDied evt)
     {
-        var position = transform.position;
-        position.x = evt.position.x;
-        position.z = evt.position.z;
+        UpdateCamera(evt.position);
+    }
+
+    void UpdateCamera(Vector3 position)
+    {
+        position.y = transform.position.y;
         transform.position = position;
     }
 }

@@ -30,6 +30,7 @@ namespace Events
 
     struct BossDied
     {
+        public Vector3 position;
     }
 
     struct MusicChanged

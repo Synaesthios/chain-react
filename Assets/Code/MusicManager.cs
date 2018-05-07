@@ -8,6 +8,9 @@ public class MusicManager : MonoBehaviour
     AudioClip[] m_music;
 
     [SerializeField]
+    int[] m_musicBpm = { 110, 144, 140, 180, 117 };
+
+    [SerializeField]
     AudioSource m_beatAudioSource;
 
     [SerializeField]
@@ -35,11 +38,7 @@ public class MusicManager : MonoBehaviour
 
     private void SetupNextMusic()
     {
-        CurrentBPM = UniBpmAnalyzer.AnalyzeBpm(m_audioSource.clip);
-        if (CurrentBPM > m_bpmCapBeforeHalf)
-            CurrentBPM /= 2;
-
-        Debug.Log("BPM: " + CurrentBPM);
+        CurrentBPM = m_musicBpm[LoadScene.gameSongIndex];
         m_secondsBetweenBeats = 1 / (CurrentBPM / 60.0f);
         m_musicStartTime = AudioSettings.dspTime + c_delayBeforeMusicStarts;
         m_previousBeatTime = m_musicStartTime;

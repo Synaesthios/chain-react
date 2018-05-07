@@ -81,7 +81,6 @@ public class CircleBoss : Enemy {
 
     public override void OnExplode()
     {
-
-        EventSystem.Fire(new Events.BossDied());
+        EventSystem.Fire(new Events.BossDied() { position = transform.position });
     }
 }
