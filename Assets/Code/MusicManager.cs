@@ -8,7 +8,7 @@ public class MusicManager : MonoBehaviour
     AudioClip[] m_music;
 
     [SerializeField]
-    int[] m_musicBpm = { 110, 144, 140, 180, 117 };
+    int[] m_musicBpm = { 110, 144, 140, 120, 117 };
 
     [SerializeField]
     AudioSource m_beatAudioSource;
