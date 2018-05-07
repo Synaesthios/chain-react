@@ -14,8 +14,9 @@ public class GameOverTracker : MonoBehaviour {
     public GameObject highScoreUI;
     public ScoreTracker scoreTracker;
 
+    private bool showLeaderboard;
 	void Update () {
-		if (player.isDead()) {
+		if (player.isDead() && !showLeaderboard) {
 			gameOverText.enabled = true;
             gameOverUI.SetActive(true);
 
@@ -32,7 +33,6 @@ public class GameOverTracker : MonoBehaviour {
         if (string.IsNullOrEmpty(highScoreInput.text))
             return;
 
-        
         StartCoroutine(SubmitScoreToAPI());
     }
 
@@ -52,7 +52,9 @@ public class GameOverTracker : MonoBehaviour {
         if(request.isNetworkError || request.isHttpError) {
             Debug.Log(request.error);
         }
+        showLeaderboard = true;
         gameOverText.enabled = false;
+        gameOverUI.SetActive(false);
         highScoreUI.SetActive(true);
     }
 }
