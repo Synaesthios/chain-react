@@ -4799,7 +4799,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Song 3
 
-    110 BPM'
+    140 BPM'
 --- !u!222 &243455692
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14352,8 +14352,8 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 100, y: 80}
-  m_Spacing: {x: 20, y: 0}
+  m_CellSize: {x: 140, y: 80}
+  m_Spacing: {x: 10, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1 &828612449
@@ -14425,7 +14425,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Song 4
 
-    110 BPM'
+    180 BPM'
 --- !u!222 &828612452
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14623,7 +14623,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Song 2
 
-    110 BPM'
+    144 BPM'
 --- !u!222 &1109142462
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19742,7 +19742,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Song 5
 
-    110 BPM'
+    117 BPM'
 --- !u!222 &1605701156
 CanvasRenderer:
   m_ObjectHideFlags: 0
