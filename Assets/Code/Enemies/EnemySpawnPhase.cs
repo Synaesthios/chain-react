@@ -18,8 +18,12 @@ public class EnemySpawnPhase : ScriptableObject
     private float timeSinceLastRespawn = 0;
 
     // 120 bpm to 4x spawn multiplier with 0.03333f
-    private const float c_spawnMultiplierPerBeat = 0.0333333f; 
+    private const float c_spawnMultiplierPerBeat = 0.0333333f;
 
+    private void OnEnable()
+    {
+        timeSinceLastRespawn = 0;
+    }
     /**
         Gets a list of enemies to spawn depending on the current time in the game
      */
