@@ -13,4 +13,8 @@ public class LeaderBoardEntryResponse
     {
         return JsonUtility.FromJson<LeaderBoardEntryResponse>(jsonString);
     }
+
+    public static string toJson(LeaderBoardEntryResponse leaderBoardEntity) {
+        return JsonUtility.ToJson(leaderBoardEntity);
+    }
 }

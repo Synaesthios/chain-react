@@ -23,7 +23,7 @@ public class ScoreTracker : MonoBehaviour
     int[] m_streakAmountForMultiplierIncrease = { 4, 8, 12, 16, 24, 32, 40 };
 
     private int m_currentMultiplier;
-    private long score;
+    public long score;
     private double displayedScore;
 
 	void Start ()
