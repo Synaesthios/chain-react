@@ -58,7 +58,7 @@ public class PlayerFireScript : MonoBehaviour {
             m_nextBeatTime = m_previousBeatTime + m_secondsBetweenBeats;
         }
 
-        if (!m_alreadyFiredForThisBeat && Input.GetMouseButtonDown(0))
+        if (!m_alreadyFiredForThisBeat && Input.GetButtonDown("Fire1"))
         {
             if (GetFireRating() == BeatRating.Perfect)
             {

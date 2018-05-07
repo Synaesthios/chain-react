@@ -58,7 +58,7 @@ public class EnemySpawner : MonoBehaviour {
         EnemySpawnPhase newPhase = GetCurrentEnemySpawnPhase();
         if(newPhase.Boss != null)
         {
-            GameObject.Instantiate(newPhase.Boss, GetRandomLevelBackgroundCoordinate(newPhase.Boss.GetComponent<Renderer>()), Quaternion.identity);
+            GameObject.Instantiate(newPhase.Boss, GetRandomLevelBackgroundCoordinate(newPhase.Boss.GetComponentInChildren<Renderer>()), Quaternion.identity);
         }
     }
 
