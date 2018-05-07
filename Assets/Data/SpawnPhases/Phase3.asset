@@ -9,13 +9,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1cb2a24e1aefbc74fa421e856a586b7d, type: 3}
-  m_Name: FirstPhase
+  m_Name: Phase3
   m_EditorClassIdentifier: 
-  maxEnemiesSpawned: 4
-  minEnemiesSpawned: 3
+  maxEnemiesSpawned: 6
+  minEnemiesSpawned: 5
   enemiesThatCanSpawn:
-  - {fileID: 114610054675416008, guid: 1a9eed572c0c6a84087e008b6a8f2d07, type: 2}
-  - {fileID: 114441220380095130, guid: 86feda36884ae7140b8ebe4c6ba3d41b, type: 2}
+  - {fileID: 1251844689907994, guid: 86feda36884ae7140b8ebe4c6ba3d41b, type: 2}
+  - {fileID: 1573753355345202, guid: 1a9eed572c0c6a84087e008b6a8f2d07, type: 2}
+  - {fileID: 1573753355345202, guid: d2750a027cf7aa44893b51c0d92fccd1, type: 2}
+  - {fileID: 1573753355345202, guid: 49047f5153f57224abacc53725564b43, type: 2}
   timeBetweenEnemySpawns: 5
   Boss: {fileID: 0}
   Duration: 30

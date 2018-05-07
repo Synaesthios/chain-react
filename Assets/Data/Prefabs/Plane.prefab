@@ -110,3 +110,10 @@ MonoBehaviour:
   levelBackground: {fileID: 23196373937167862}
   SpawnPhases:
   - {fileID: 11400000, guid: 102f2b849b077de4eacbe4e1ae0ae7fe, type: 2}
+  - {fileID: 11400000, guid: 10e47f1ff67e570499f94d5f419d83f4, type: 2}
+  - {fileID: 11400000, guid: d4622f057a37e634c82063602e43bddf, type: 2}
+  - {fileID: 11400000, guid: eca6faca2443d6040a3d17c201a7265e, type: 2}
+  - {fileID: 11400000, guid: e134e88bcb4234f47844871fd644783e, type: 2}
+  - {fileID: 11400000, guid: 93cbe1d792665c64286e91f3e7200115, type: 2}
+  - {fileID: 11400000, guid: 5221df00a6e69ea44906a6e0fb8bf553, type: 2}
+  - {fileID: 11400000, guid: ef5fc28737f3a50479bdd5375490c541, type: 2}
