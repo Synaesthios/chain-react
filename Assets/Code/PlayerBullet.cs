@@ -38,6 +38,7 @@ public class PlayerBullet : MonoBehaviour {
                 m_renderer.material.color = Color.green;
                 m_trailRenderer.startColor = Color.green;
                 m_trailRenderer.endColor = Color.green;
+                m_trailRenderer.material.SetColor("_EmissionColor", Color.green);
                 break;
         }
 	}
