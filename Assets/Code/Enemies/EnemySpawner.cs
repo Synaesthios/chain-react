@@ -17,100 +17,11 @@ public class EnemySpawner : MonoBehaviour {
 	 */
 	
 	void Start () {
-        /*
-        SpawnPhases = new List<EnemySpawnPhase>();
-
-        // Enemies 1
-        SpawnPhases.Add(new EnemySpawnPhase()
-        {
-            Duration = 30,
-            minEnemiesSpawned = 3,
-            maxEnemiesSpawned = 4,
-            enemiesThatCanSpawn = new List<Enemy>() { basicEnemy, followerEnemy },
-            timeBetweenEnemySpawns = 5
-        });
-
-        // Boss 1
-        SpawnPhases.Add(new EnemySpawnPhase()
-        {
-            Boss = circleBoss,
-            minEnemiesSpawned = 3,
-            maxEnemiesSpawned = 4,
-            enemiesThatCanSpawn = new List<Enemy>() { basicEnemy, followerEnemy },
-            timeBetweenEnemySpawns = 5
-        });
-
-        // Enemies 2
-        SpawnPhases.Add(new EnemySpawnPhase()
-        {
-            Duration = 30,
-            minEnemiesSpawned = 4,
-            maxEnemiesSpawned = 5,
-            enemiesThatCanSpawn = new List<Enemy>() { basicEnemy, followerEnemy, followerEnemy },
-            timeBetweenEnemySpawns = 4
-        });
-
-        // Boss 2
-        SpawnPhases.Add(new EnemySpawnPhase()
-        {
-            Boss = squareBoss,
-            minEnemiesSpawned = 3,
-            maxEnemiesSpawned = 4,
-            enemiesThatCanSpawn = new List<Enemy>() { basicEnemy, followerEnemy },
-            timeBetweenEnemySpawns = 5
-        });
-
-        // Enemies 3
-        SpawnPhases.Add(new EnemySpawnPhase()
-        {
-            Duration = 60,
-            minEnemiesSpawned = 5,
-            maxEnemiesSpawned = 6,
-            enemiesThatCanSpawn = new List<Enemy>() { basicEnemy, followerEnemy, followerEnemy },
-            timeBetweenEnemySpawns = 5
-        });
-
-        // Boss 3
-        SpawnPhases.Add(new EnemySpawnPhase()
-        {
-            Boss = circleBoss,
-            minEnemiesSpawned = 4,
-            maxEnemiesSpawned = 5,
-            enemiesThatCanSpawn = new List<Enemy>() { followerEnemy, followerEnemy },
-            timeBetweenEnemySpawns = 5
-        });
-
-        // Enemies 4
-        SpawnPhases.Add(new EnemySpawnPhase()
-        {
-            Duration = 60,
-            minEnemiesSpawned = 5,
-            maxEnemiesSpawned = 6,
-            enemiesThatCanSpawn = new List<Enemy>() { basicEnemy, followerEnemy, followerEnemy },
-            timeBetweenEnemySpawns = 5
-        });
-
-        // Boss 4
-        SpawnPhases.Add(new EnemySpawnPhase()
-        {
-            Boss = squareBoss,
-            minEnemiesSpawned = 5,
-            maxEnemiesSpawned = 6,
-            enemiesThatCanSpawn = new List<Enemy>() { followerEnemy, followerEnemy },
-            timeBetweenEnemySpawns = 5
-        });
-        */
-
+        EventSystem.Subscribe<Events.PlayerDied>((evt) => { enabled = false; });
         EventSystem.Subscribe<Events.BossDied>(OnBossDied);
     }
 	
 	void Update () {
-        var player = GameObject.FindObjectOfType<PlayerScript>();
-        if (player == null || player.isDead())
-        {
-            return;
-        }
-
         EnemySpawnPhase currentPhase = GetCurrentEnemySpawnPhase();
 
         List<Enemy> enemiesToSpawn = currentPhase.GetEnemiesToSpawn(m_timeSinceLastPhase);

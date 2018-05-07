@@ -54,6 +54,7 @@ public class PlayerScript : MonoBehaviour {
 		StartCoroutine("Invulnerable");
 		Health -= 1;
 		if (isDead()){
+            EventSystem.Fire(new Events.PlayerDied());
 			gameObject.SetActive(false);
 		}
         GameObject.FindObjectOfType<LowPassFilterManager>().SetFilterAmountImmediate(0);
