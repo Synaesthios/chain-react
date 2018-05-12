@@ -36,6 +36,13 @@ public class ScoreTracker : MonoBehaviour
         EventSystem.Subscribe<Events.StreakEnded>(OnStreakEnded);
 	}
 
+    void OnDestroy()
+    {
+        EventSystem.Unsubscribe<Events.EnemyDied>(OnEnemyDied);
+        EventSystem.Unsubscribe<Events.StreakIncrease>(OnStreakIncrease);
+        EventSystem.Unsubscribe<Events.StreakEnded>(OnStreakEnded);
+    }
+
     private void Update()
     {
         if (displayedScore != score)

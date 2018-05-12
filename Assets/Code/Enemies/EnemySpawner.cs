@@ -17,12 +17,23 @@ public class EnemySpawner : MonoBehaviour {
 	 */
 	
 	void Start () {
-        EventSystem.Subscribe<Events.PlayerDied>((evt) => { enabled = false; });
+        EventSystem.Subscribe<Events.PlayerDied>(OnPlayerDied);
         EventSystem.Subscribe<Events.BossDied>(OnBossDied);
         GetCurrentEnemySpawnPhase().Setup();
     }
-	
-	void Update () {
+
+    private void OnDestroy()
+    {
+        EventSystem.Unsubscribe<Events.PlayerDied>(OnPlayerDied);
+        EventSystem.Unsubscribe<Events.BossDied>(OnBossDied);
+    }
+
+    private void OnPlayerDied(Events.PlayerDied evt)
+    {
+        enabled = false;
+    }
+
+    void Update () {
         EnemySpawnPhase currentPhase = GetCurrentEnemySpawnPhase();
 
         List<Enemy> enemiesToSpawn = currentPhase.GetEnemiesToSpawn(m_timeSinceLastPhase);

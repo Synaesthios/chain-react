@@ -22,6 +22,12 @@ public class StreakCounterUI : MonoBehaviour
         EventSystem.Subscribe<Events.StreakEnded>(OnStreakEnded);
     }
 
+    private void OnDestroy()
+    {
+        EventSystem.Unsubscribe<Events.StreakIncrease>(OnStreakIncrease);
+        EventSystem.Unsubscribe<Events.StreakEnded>(OnStreakEnded);
+    }
+
     private void OnStreakIncrease(Events.StreakIncrease evt)
     {
         if(this == null)

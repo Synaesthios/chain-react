@@ -21,9 +21,10 @@ public class LoadScene : MonoBehaviour {
     {
         gameSongIndex = songIndex;
         animator.SetTrigger("PlayTitle");
-        
+        InvokeRepeating("CheckAnimationDone", 0, .5f);
     }
-    private void Update()
+
+    private void CheckAnimationDone()
     {
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("End"))
         {

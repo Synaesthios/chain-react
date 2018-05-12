@@ -23,11 +23,6 @@ public abstract class Enemy : MonoBehaviour {
     /// </summary>
     public abstract void OnExplode();
 
-    private void Start()
-    {
-        EventSystem.Subscribe<Events.OnBeat>(OnBeat);
-    }
-
     /// <summary>
     /// When colliding with something, maybe explode.
     /// </summary>
@@ -75,6 +70,12 @@ public abstract class Enemy : MonoBehaviour {
     public void HitPlayer()
     {
         Die();
+    }
+
+    private void OnDestroy()
+    {
+        if (m_explodeOnNextBeat)
+            EventSystem.Unsubscribe<Events.OnBeat>(OnBeat);
     }
 
     /// <summary>
@@ -125,6 +126,7 @@ public abstract class Enemy : MonoBehaviour {
         StopAllCoroutines();
 
         m_explodeOnNextBeat = true;
+        EventSystem.Subscribe<Events.OnBeat>(OnBeat);
         GetComponent<Collider>().enabled = false;
         EventSystem.Fire(new Events.EnemyDied(100, transform.position));
         var materials = GetComponentInChildren<Renderer>().materials;

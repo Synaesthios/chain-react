@@ -31,6 +31,11 @@ public class PlayerFireScript : MonoBehaviour {
         EventSystem.Subscribe<Events.MusicChanged>(OnMusicChanged);
     }
 
+    private void OnDestroy()
+    {
+        EventSystem.Unsubscribe<Events.MusicChanged>(OnMusicChanged);
+    }
+
     private void OnMusicChanged(Events.MusicChanged evt)
     {
         m_secondsBetweenBeats = evt.m_secondsBetweenBeats;

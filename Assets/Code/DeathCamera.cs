@@ -8,7 +8,14 @@ public class DeathCamera : MonoBehaviour
 	void Start () {
         EventSystem.Subscribe<Events.PlayerDied>(OnPlayerDied);
 	}
-	
+
+    private void OnDestroy()
+    {
+        EventSystem.Unsubscribe<Events.PlayerDied>(OnPlayerDied);
+        EventSystem.Unsubscribe<Events.EnemyDied>(OnEnemyDied);
+        EventSystem.Unsubscribe<Events.BossDied>(OnBossDied);
+    }
+
     void OnPlayerDied(Events.PlayerDied evt)
     {
         gameObject.SetActive(true);

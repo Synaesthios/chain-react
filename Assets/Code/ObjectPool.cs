@@ -20,7 +20,12 @@ public class ObjectPool : MonoBehaviour
             return s_instance;
         }
     }
-    
+
+
+    private void OnDestroy()
+    {
+        s_instance = null;
+    }
 
     Dictionary<GameObject, Queue<GameObject>> m_objectPool = new Dictionary<GameObject, Queue<GameObject>>();
 
